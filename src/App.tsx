@@ -7,7 +7,7 @@ function App() {
   });
   return (
     <>
-      <h1>Weather app</h1>
+      <h1 className="text-3xl font-bold underline">Weather app</h1>
       <div className="card">
         <p>{isLoading ? 'Loading...' : 'weatherData loaded!'}</p>
       </div>
