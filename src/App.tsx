@@ -1,15 +1,18 @@
+import { useGeolocation } from 'react-use';
 import { useWeatherData } from './hooks/useWeatherData.tsx';
 
 function App() {
-  const { isLoading } = useWeatherData({
-    latitude: 1,
-    longitude: 2,
+  const { latitude, longitude } = useGeolocation();
+  const { data, isLoading } = useWeatherData({
+    latitude,
+    longitude,
   });
   return (
     <>
       <h1 className="text-3xl font-bold underline">Weather app</h1>
       <div className="card">
-        <p>{isLoading ? 'Loading...' : 'weatherData loaded!'}</p>
+        {isLoading ? <p>Loading...</p> : null}
+        {data ? <pre> {JSON.stringify(data, null, 2)}</pre> : null}
       </div>
     </>
   );
