@@ -36,6 +36,7 @@ export interface timelinesArrayInterface {
 export interface valuesInterface {
   date: string;
   values: Array<{
+    hour?: number;
     cloudBase?: number | null;
     cloudCeiling?: number | null;
     cloudCover?: number | null;
@@ -67,4 +68,8 @@ export interface valuesInterface {
     windGust?: number | null;
     windSpeed?: number | null;
   }>;
+}
+
+export interface dayForcastCardInterface {
+  dayForecast: valuesInterface;
 }

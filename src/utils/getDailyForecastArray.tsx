@@ -6,19 +6,34 @@ export const getDailyForecastArray = (
   const dailyForcastArray: Array<valuesInterface> = [];
 
   timelinesArray.forEach((el, i) => {
+    const hour = Number(el.time.split('T')[1].split(':')[0]);
     if (i > 0) {
       if (
         el.time.split('T')[0] ===
         dailyForcastArray[dailyForcastArray.length - 1].date.split('T')[0]
       ) {
-        dailyForcastArray[dailyForcastArray.length - 1].values.push(el.values);
+        dailyForcastArray[dailyForcastArray.length - 1].values.push({
+          ...el.values,
+          hour,
+        });
       } else {
-        dailyForcastArray.push({ date: el.time, values: [el.values] });
+        dailyForcastArray.push({
+          date: el.time,
+          values: [{ ...el.values, hour }],
+        });
       }
     } else {
-      dailyForcastArray.push({ date: el.time, values: [el.values] });
+      dailyForcastArray.push({
+        date: el.time,
+        values: [
+          {
+            ...el.values,
+            hour,
+          },
+        ],
+      });
     }
   });
-  // console.log(dailyForcastArray);
+  console.log(dailyForcastArray);
   return dailyForcastArray;
 };

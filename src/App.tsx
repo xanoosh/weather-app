@@ -3,6 +3,8 @@
 import data from './globals';
 import { getDailyForecastArray } from './utils/getDailyForecastArray';
 
+import DayForcastCard from './components/DayForcastCard';
+
 function App() {
   // const { latitude, longitude } = useGeolocation();
   // const { data, isLoading } = useWeatherData({
@@ -14,11 +16,15 @@ function App() {
     <>
       <h1 className="text-3xl font-bold underline">Weather app</h1>
       <div className="card">
-        {/* {isLoading ? <p>Loading...</p> : null} */}
-        <h1 className="text-1xl font-bold underline">dailyForecastArray:</h1>
-        {dailyForecastArray ? (
+        {/* {dailyForecastArray ? (
           <pre> {JSON.stringify(dailyForecastArray, null, 2)}</pre>
-        ) : null}
+        ) : null} */}
+
+        <div className="flex gap-2">
+          {dailyForecastArray.map((dayForecast, i) => (
+            <DayForcastCard dayForecast={dayForecast} key={i} />
+          ))}
+        </div>
       </div>
     </>
   );
