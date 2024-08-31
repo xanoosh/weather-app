@@ -73,3 +73,7 @@ export interface valuesInterface {
 export interface dayForcastCardInterface {
   dayForecast: valuesInterface;
 }
+
+export interface forecastTabsInterface {
+  data: Array<valuesInterface>;
+}
