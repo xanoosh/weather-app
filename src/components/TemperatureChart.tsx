@@ -10,13 +10,14 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => (
         const temp = String(point.data.y) + '°C';
         const hour = String(point.data.x) + ':00';
         return (
-          <div className="border px-2 py-1 border-slate-200 rounded-sm bg-white">
+          <div className="border px-3 py-2 border-slate-200 rounded-sm bg-white flex flex-col gap-2">
             <p className="text-sm text-slate-600">
               {temp} at {hour}
             </p>
           </div>
         );
       }}
+      onClick={(point) => console.log('clicked point:', point.data)}
       margin={{ left: 70, right: 30, bottom: 50, top: 50 }}
       xScale={{ type: 'point' }}
       yScale={{
