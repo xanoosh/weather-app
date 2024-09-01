@@ -77,3 +77,10 @@ export interface dayForcastCardInterface {
 export interface forecastTabsInterface {
   data: Array<valuesInterface>;
 }
+
+export interface temperatureChartInterface {
+  chartData: Array<{
+    id: string;
+    data: Array<{ x: string; y: string }>;
+  }>;
+}

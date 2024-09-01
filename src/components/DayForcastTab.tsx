@@ -11,41 +11,19 @@ export default function DayForcastTab({
   ));
   const temperaturesChartData = [
     {
-      id: 'temp',
-      color: 'hsl(233, 70%, 50%)',
+      id: 'temperature',
       data: dayForecast.values.map(({ hour, temperature }) => ({
-        x: hour,
-        y: temperature,
+        x: `${hour}`,
+        y: `${temperature}`,
       })),
-      // data: [
-      //   {
-      //     x: '14:00',
-      //     y: 15,
-      //   },
-      //   {
-      //     x: '15:00',
-      //     y: 16,
-      //   },
-      //   {
-      //     x: '16:00',
-      //     y: 16,
-      //   },
-      //   {
-      //     x: '17:00',
-      //     y: 13,
-      //   },
-      // ],
     },
   ];
   return (
-    <div className="bg-white max-w-2xl shadow overflow-hidden sm:rounded-lg">
+    <div className="bg-white max-w-2xl shadow sm:rounded-lg">
+      <TemperatureChart chartData={temperaturesChartData} />
       <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
-          User database
-        </h3>
-        <p className="mt-1 max-w-2xl text-sm text-gray-500">
-          Details and informations about user.
-        </p>
+        <h3 className="text-lg leading-6 font-medium text-gray-900"></h3>
+        <p className="mt-1 max-w-2xl text-sm text-gray-500">Weather details.</p>
       </div>
       <div className="border-t border-gray-200">
         <dl>
@@ -82,17 +60,7 @@ export default function DayForcastTab({
             </dd>
           </div>
         </dl>
-        <p>temperatures:</p>
-        <TemperatureChart chartData={temperaturesChartData} />
       </div>
-      {/* <p>temperatures:</p>
-      <ul>
-        {dayForecast.values.map(({ hour, temperature }, i) => (
-          <li key={i}>
-            {hour}: {temperature}
-          </li>
-        ))}
-      </ul> */}
     </div>
   );
 }
