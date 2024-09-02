@@ -1,4 +1,12 @@
 import { dayForecastHorizontalScrollElementInterface } from '../interfaces';
+import {
+  WiDaySunny,
+  WiCloudy,
+  WiCloudyGusts,
+  WiDayRainMix,
+  WiStormShowers,
+  WiDaySnow,
+} from 'react-icons/wi';
 
 export default function DayForecastHorizontalScrollElement({
   hourForecast,
