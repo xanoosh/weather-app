@@ -1,6 +1,7 @@
 import { forecastTabsInterface } from '../interfaces';
 import DayForcastTab from './DayForcastTab';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
+import DayForecastHorizontalScroll from './DayForecastHorizontalScroll';
 
 export default function ForecastTabs({ data }: forecastTabsInterface) {
   return (
@@ -19,6 +20,7 @@ export default function ForecastTabs({ data }: forecastTabsInterface) {
         <TabPanels className="mt-3">
           {data.map((dayForecast, i) => (
             <TabPanel key={i} className="rounded-xl bg-blue-300/10 p-3">
+              <DayForecastHorizontalScroll dayForecast={dayForecast} />
               <DayForcastTab dayForecast={dayForecast} key={i} />
             </TabPanel>
           ))}
