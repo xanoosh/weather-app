@@ -14,7 +14,7 @@ export default function ForecastTabs({
       <TabGroup>
         <TabList className="flex flex-wrap border-b-2 border-white/40 justify-center">
           {dailyForecastArray.map((dayForecast, i) => {
-            const displayDate = moment(dayForecast.date).format('DD.MM.YY');
+            const displayDate = moment(dayForecast.date).format('DD.MM');
             return (
               <Tab
                 key={i}
