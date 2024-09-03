@@ -12,8 +12,8 @@ function App() {
   // });
   const dailyForecastArray = getDailyForecastArray(data.timelines.hourly);
   return (
-    <div className="flex gap-4 flex-col p-3">
-      <h1 className="text-3xl font-bold">Weather app</h1>
+    <div className="flex gap-4 flex-col p-3 bg-sky-500">
+      <h1 className="text-3xl text-white text-center">Weather app</h1>
       <ForecastTabs data={dailyForecastArray} />
     </div>
   );

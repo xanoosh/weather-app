@@ -1,21 +1,25 @@
 import { forecastTabsInterface } from '../interfaces';
 import DayForcastTab from './DayForcastTab';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
-import DayForecastHorizontalScroll from './DayForecastHorizontalScroll';
+import DayForecastHorizontalScroll from './horizontalScroll/DayForecastHorizontalScroll';
+import moment from 'moment';
 
 export default function ForecastTabs({ data }: forecastTabsInterface) {
   return (
     <>
       <TabGroup>
-        <TabList className="flex gap-3 flex-wrap">
-          {data.map((dayForecast, i) => (
-            <Tab
-              key={i}
-              className="rounded-full py-1 px-2 text-sm focus:outline-none data-[selected]:bg-blue-500 data-[selected]:text-white data-[hover]:bg-blue-100 data-[selected]:data-[hover]:bg-blue-700 data-[focus]:outline-1 data-[focus]:outline-white"
-            >
-              {dayForecast.date}
-            </Tab>
-          ))}
+        <TabList className="flex flex-wrap border-b-2 border-white/40 justify-center">
+          {data.map((dayForecast, i) => {
+            const displayDate = moment(dayForecast.date).format('DD.MM.YY');
+            return (
+              <Tab
+                key={i}
+                className="border-b-2 border-transparent text-white/60 py-2 px-3 -mb-0.5 text-sm focus:outline-none data-[selected]:font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+              >
+                {displayDate}
+              </Tab>
+            );
+          })}
         </TabList>
         <TabPanels className="mt-3">
           {data.map((dayForecast, i) => (

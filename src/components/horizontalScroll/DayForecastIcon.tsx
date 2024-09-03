@@ -18,46 +18,42 @@ export default function DayForecastIcon({
 }: dayForecastIconInterface) {
   return (
     <>
-      {weatherName === 'Unknown' ? <WiAlien size={'1.5rem'} /> : null}
+      {weatherName === 'Unknown' ? <WiAlien size={'2rem'} /> : null}
       {/* clear */}
-      {weatherName === 'Clear, Sunny' ? <WiDaySunny size={'1.5rem'} /> : null}
+      {weatherName === 'Clear, Sunny' ? <WiDaySunny size={'2rem'} /> : null}
       {/* cloudy */}
-      {weatherName === 'Mostly Clear' ? <WiDayCloudy size={'1.5rem'} /> : null}
-      {weatherName === 'Partly Cloudy' ? <WiDayCloudy size={'1.5rem'} /> : null}
-      {weatherName === 'Mostly Cloudy' ? <WiCloud size={'1.5rem'} /> : null}
-      {weatherName === 'Cloudy' ? <WiCloudy size={'1.5rem'} /> : null}
+      {weatherName === 'Mostly Clear' ? <WiDayCloudy size={'2rem'} /> : null}
+      {weatherName === 'Partly Cloudy' ? <WiDayCloudy size={'2rem'} /> : null}
+      {weatherName === 'Mostly Cloudy' ? <WiCloud size={'2rem'} /> : null}
+      {weatherName === 'Cloudy' ? <WiCloudy size={'2rem'} /> : null}
       {/* fog */}
-      {weatherName === 'Fog' ? <WiFog size={'1.5rem'} /> : null}
-      {weatherName === 'Light Fog' ? <WiFog size={'1.5rem'} /> : null}
+      {weatherName === 'Fog' ? <WiFog size={'2rem'} /> : null}
+      {weatherName === 'Light Fog' ? <WiFog size={'2rem'} /> : null}
       {/* rain */}
-      {weatherName === 'Drizzle' ? <WiShowers size={'1.5rem'} /> : null}
-      {weatherName === 'Rain' ? <WiRain size={'1.5rem'} /> : null}
-      {weatherName === 'Light Rain' ? <WiShowers size={'1.5rem'} /> : null}
-      {weatherName === 'Heavy Rain' ? <WiRain size={'1.5rem'} /> : null}
+      {weatherName === 'Drizzle' ? <WiShowers size={'2rem'} /> : null}
+      {weatherName === 'Rain' ? <WiRain size={'2rem'} /> : null}
+      {weatherName === 'Light Rain' ? <WiShowers size={'2rem'} /> : null}
+      {weatherName === 'Heavy Rain' ? <WiRain size={'2rem'} /> : null}
       {/* snow */}
-      {weatherName === 'Snow' ? <WiSnow size={'1.5rem'} /> : null}
-      {weatherName === 'Flurries' ? <WiSnow size={'1.5rem'} /> : null}
-      {weatherName === 'Light Snow' ? <WiSnow size={'1.5rem'} /> : null}
-      {weatherName === 'Heavy Snow' ? <WiSnow size={'1.5rem'} /> : null}
+      {weatherName === 'Snow' ? <WiSnow size={'2rem'} /> : null}
+      {weatherName === 'Flurries' ? <WiSnow size={'2rem'} /> : null}
+      {weatherName === 'Light Snow' ? <WiSnow size={'2rem'} /> : null}
+      {weatherName === 'Heavy Snow' ? <WiSnow size={'2rem'} /> : null}
       {/* freezing rain */}
-      {weatherName === 'Freezing Drizzle' ? (
-        <WiRainWind size={'1.5rem'} />
-      ) : null}
-      {weatherName === 'Freezing Rain' ? <WiRainWind size={'1.5rem'} /> : null}
+      {weatherName === 'Freezing Drizzle' ? <WiRainWind size={'2rem'} /> : null}
+      {weatherName === 'Freezing Rain' ? <WiRainWind size={'2rem'} /> : null}
       {weatherName === 'Light Freezing Rain' ? (
-        <WiRainWind size={'1.5rem'} />
+        <WiRainWind size={'2rem'} />
       ) : null}
       {weatherName === 'Heavy Freezing Rain' ? (
-        <WiRainWind size={'1.5rem'} />
+        <WiRainWind size={'2rem'} />
       ) : null}
       {/* ice pellets */}
-      {weatherName === 'Ice Pellets' ? <WiHail size={'1.5rem'} /> : null}
-      {weatherName === 'Heavy Ice Pellets' ? <WiHail size={'1.5rem'} /> : null}
-      {weatherName === 'Light Ice Pellets' ? <WiHail size={'1.5rem'} /> : null}
+      {weatherName === 'Ice Pellets' ? <WiHail size={'2rem'} /> : null}
+      {weatherName === 'Heavy Ice Pellets' ? <WiHail size={'2rem'} /> : null}
+      {weatherName === 'Light Ice Pellets' ? <WiHail size={'2rem'} /> : null}
       {/* Thunderstorm */}
-      {weatherName === 'Thunderstorm' ? (
-        <WiThunderstorm size={'1.5rem'} />
-      ) : null}
+      {weatherName === 'Thunderstorm' ? <WiThunderstorm size={'2rem'} /> : null}
     </>
   );
 }
