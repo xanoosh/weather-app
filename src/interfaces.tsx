@@ -74,6 +74,9 @@ export interface dayForecastCardInterface {
   dayForecast: valuesInterface;
 }
 
+export interface dayForecastIconInterface {
+  weatherName: string;
+}
 export interface dayForecastHorizontalScrollInterface {
   dayForecast: valuesInterface;
 }
