@@ -1,5 +1,6 @@
 import { dayForecastIconInterface } from '../../interfaces';
 import {
+  WiAlien,
   WiDaySunny,
   WiDayCloudy,
   WiCloud,
@@ -17,6 +18,7 @@ export default function DayForecastIcon({
 }: dayForecastIconInterface) {
   return (
     <>
+      {weatherName === 'Unknown' ? <WiAlien size={'1.5rem'} /> : null}
       {/* clear */}
       {weatherName === 'Clear, Sunny' ? <WiDaySunny size={'1.5rem'} /> : null}
       {/* cloudy */}
