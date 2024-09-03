@@ -118,7 +118,8 @@ export interface dayForecastHorizontalScrollElementInterface {
 }
 
 export interface forecastTabsInterface {
-  data: Array<valuesInterface>;
+  // data: Array<valuesInterface>;
+  hourlyForecast: Array<timelinesArrayInterface>;
 }
 
 export interface temperatureChartInterface {

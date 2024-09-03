@@ -23,7 +23,7 @@ async function getWeatherData(
   if (!latitude || !longitude) return null;
   try {
     const response = await fetch(
-      `https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&timesteps=1h&apikey=hksUR6LwcgQ99KQzNrGljeRi8oR6vWIv`,
+      `https://api.tomorrow.io/v4/weather/forecast?location=${latitude},${longitude}&timesteps=1h&apikey=hksUR6LwcgQ99KQzNrGljeRi8oR6vWIv`,
       {
         method: 'GET',
       }
