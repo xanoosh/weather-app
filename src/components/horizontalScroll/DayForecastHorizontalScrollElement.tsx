@@ -2,7 +2,7 @@ import { dayForecastHorizontalScrollElementInterface } from '../../interfaces';
 import { WiTime2 } from 'react-icons/wi';
 import { getWeatherNameFromCode } from '../../utils/getWeatherNameFromCode';
 import DayForecastIcon from './DayForecastIcon';
-//cloudy, rain, fog. clear
+
 export default function DayForecastHorizontalScrollElement({
   hourForecast,
 }: dayForecastHorizontalScrollElementInterface) {
@@ -19,9 +19,11 @@ export default function DayForecastHorizontalScrollElement({
         <DayForecastIcon weatherName={weatherName} />
       </div>
       <div>
-        <p className="text-center text-md font-semibold">
-          {hourForecast.temperature}°C
-        </p>
+        {hourForecast.temperature ? (
+          <p className="text-center text-md font-semibold">
+            {Math.round(hourForecast.temperature)}°C
+          </p>
+        ) : null}
       </div>
     </div>
   );
