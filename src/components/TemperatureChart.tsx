@@ -45,7 +45,7 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => (
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: 'temperature',
+          legend: 'temperature °C',
           legendOffset: -50,
           legendPosition: 'middle',
           truncateTickAt: 0,

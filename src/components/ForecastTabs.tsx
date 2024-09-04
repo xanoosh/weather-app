@@ -13,17 +13,14 @@ export default function ForecastTabs({
     <>
       <TabGroup>
         <TabList className="flex flex-wrap border-b-2 border-white/40 justify-center">
-          {dailyForecastArray.map((dayForecast, i) => {
-            const displayDate = moment(dayForecast.date).format('DD.MM');
-            return (
-              <Tab
-                key={i}
-                className="border-b-2 border-transparent text-white/60 py-2 px-3 -mb-0.5 text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
-              >
-                {displayDate}
-              </Tab>
-            );
-          })}
+          {dailyForecastArray.map((dayForecast, i) => (
+            <Tab
+              key={i}
+              className="border-b-2 border-transparent text-white/60 py-2 px-3 -mb-0.5 text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            >
+              {moment(dayForecast.date).format('DD.MM')}
+            </Tab>
+          ))}
         </TabList>
         <TabPanels className="mt-3">
           {dailyForecastArray.map((dayForecast, i) => (
