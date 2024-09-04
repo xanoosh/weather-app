@@ -12,7 +12,7 @@ export default function ForecastTabs({
   return (
     <>
       <TabGroup>
-        <TabList className="flex flex-wrap border-b-2 border-white/40 justify-center">
+        <TabList className="flex border-b-2 border-white/40 md:justify-center justify-between">
           {dailyForecastArray.map((dayForecast, i) => (
             <Tab
               key={i}
