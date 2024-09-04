@@ -10,13 +10,13 @@ export default function ForecastTabs({
 }: forecastTabsInterface) {
   const dailyForecastArray = getDailyForecastArray(hourlyForecast);
   return (
-    <>
+    <div className="lg:max-w-screen-md md:max-w-screen-sm max-w-[100%]">
       <TabGroup>
         <TabList className="flex border-b-2 border-white/40 md:justify-center justify-between">
           {dailyForecastArray.map((dayForecast, i) => (
             <Tab
               key={i}
-              className="border-b-2 border-transparent text-white/60 md:px-3 md:py-2 py-1 px-2 -mb-0.5 text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+              className="border-b-2 border-transparent text-white/60 basis-1/5 md:px-3 md:py-2 py-1 px-2 -mb-0.5 md:text-lg text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
             >
               {moment(dayForecast.date).format('DD.MM')}
             </Tab>
@@ -31,6 +31,6 @@ export default function ForecastTabs({
           ))}
         </TabPanels>
       </TabGroup>
-    </>
+    </div>
   );
 }

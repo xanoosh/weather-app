@@ -11,7 +11,7 @@ function App() {
   //   longitude: 21.017532,
   // });
   return (
-    <div className="flex gap-4 flex-col px-6 py-4 bg-sky-500">
+    <div className="flex gap-4 flex-col px-6 py-4 bg-sky-500 items-center">
       <h1 className="text-3xl text-white text-center">Weather app</h1>
       {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
     </div>
