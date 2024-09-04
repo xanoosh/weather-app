@@ -16,7 +16,7 @@ export default function ForecastTabs({
           {dailyForecastArray.map((dayForecast, i) => (
             <Tab
               key={i}
-              className="border-b-2 border-transparent text-white/60 py-2 px-3 -mb-0.5 text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+              className="border-b-2 border-transparent text-white/60 md:px-3 md:py-2 py-1 px-2 -mb-0.5 text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
             >
               {moment(dayForecast.date).format('DD.MM')}
             </Tab>
