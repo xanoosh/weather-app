@@ -1,12 +1,14 @@
 import { temperatureChartInterface } from '../interfaces';
 import { ResponsiveLine } from '@nivo/line';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
+import { chartCustomTheme } from '../globals/chartCustomTheme';
 
 export const TemperatureChart = ({ chartData }: temperatureChartInterface) => (
-  <div className="p-3 bg-white rounded">
+  <div className="rounded">
     <AspectRatio.Root ratio={16 / 9}>
       <ResponsiveLine
         data={chartData}
+        theme={chartCustomTheme}
         tooltip={({ point }) => {
           const temp = String(point.data.y) + '°C';
           const hour = String(point.data.x) + ':00';
@@ -18,13 +20,13 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => (
             </div>
           );
         }}
-        onClick={(point) => console.log('clicked point:', point.data)}
-        margin={{ left: 70, right: 30, bottom: 50, top: 50 }}
+        // onClick={(point) => console.log('clicked point:', point.data)}
+        margin={{ left: 55, right: 30, bottom: 35, top: 20 }}
         xScale={{ type: 'point' }}
         yScale={{
           type: 'linear',
-          min: 'auto',
-          max: 'auto',
+          min: 0,
+          max: 60,
           stacked: true,
           reverse: false,
         }}
@@ -50,10 +52,10 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => (
           legendPosition: 'middle',
           truncateTickAt: 0,
         }}
-        pointSize={4}
+        pointSize={3}
         pointColor={{ theme: 'background' }}
-        pointBorderWidth={2}
-        colors={{ scheme: 'category10' }}
+        pointBorderWidth={1}
+        colors={['#fff', '#000000']}
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         enableTouchCrosshair={true}
