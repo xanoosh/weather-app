@@ -1,4 +1,4 @@
-import { dayForecastIconInterface } from '../../interfaces';
+import { hourForecastIconInterface } from '../../interfaces';
 import {
   WiAlien,
   WiDaySunny,
@@ -13,9 +13,9 @@ import {
   WiHail,
   WiThunderstorm,
 } from 'react-icons/wi';
-export default function DayForecastIcon({
+export default function HourForecastIcon({
   weatherName,
-}: dayForecastIconInterface) {
+}: hourForecastIconInterface) {
   return (
     <div className="flex flex-col gap-1 justify-center items-center">
       {weatherName === 'Unknown' ? <WiAlien size={'3.5rem'} /> : null}

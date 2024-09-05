@@ -1,11 +1,11 @@
-import { dayForecastHorizontalScrollElementInterface } from '../../interfaces';
+import { hourForecastElementInterface } from '../../interfaces';
 import { WiTime2 } from 'react-icons/wi';
 import { getWeatherNameFromCode } from '../../utils/getWeatherNameFromCode';
-import DayForecastIcon from './DayForecastIcon';
+import HourForecastIcon from './HourForecastIcon';
 
-export default function DayForecastHorizontalScrollElement({
+export default function HourForecastElement({
   hourForecast,
-}: dayForecastHorizontalScrollElementInterface) {
+}: hourForecastElementInterface) {
   const weatherName = getWeatherNameFromCode(hourForecast.weatherCode);
   return (
     <div className="py-3 px-4 bg-white/20 flex flex-col gap-2 justify-center items-center text-white rounded min-w-28">
@@ -16,7 +16,7 @@ export default function DayForecastHorizontalScrollElement({
         </p>
       </div>
       <div className="flex justify-center">
-        <DayForecastIcon weatherName={weatherName} />
+        <HourForecastIcon weatherName={weatherName} />
       </div>
       <div>
         {hourForecast.temperature ? (

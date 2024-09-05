@@ -74,14 +74,14 @@ export interface dayForecastCardInterface {
   dayForecast: valuesInterface;
 }
 
-export interface dayForecastIconInterface {
+export interface hourForecastIconInterface {
   weatherName: string;
 }
-export interface dayForecastHorizontalScrollInterface {
+export interface horizontalScrollInterface {
   dayForecast: valuesInterface;
 }
 
-export interface dayForecastHorizontalScrollElementInterface {
+export interface hourForecastElementInterface {
   hourForecast: {
     hour?: number;
     cloudBase?: number | null;
