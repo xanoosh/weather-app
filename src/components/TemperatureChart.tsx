@@ -14,9 +14,13 @@ const useBreakpoint = createBreakpoint({
 
 export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
   const breakpoint = useBreakpoint();
+
+  if (breakpoint === 'sm') {
+    chartCustomTheme.axis.ticks.text.fontSize = 9;
+  }
   return (
     <div className="rounded">
-      <AspectRatio.Root ratio={breakpoint == 'sm' ? 16 / 12 : 16 / 9}>
+      <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 12 : 16 / 9}>
         <ResponsiveLine
           data={chartData}
           theme={chartCustomTheme}
@@ -32,7 +36,12 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
             );
           }}
           // onClick={(point) => console.log('clicked point:', point.data)}
-          margin={{ left: 45, right: 30, bottom: 40, top: 20 }}
+          margin={{
+            left: 45,
+            right: 10,
+            bottom: 40,
+            top: 20,
+          }}
           xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',
