@@ -4,13 +4,19 @@ import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import { chartCustomTheme } from '../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
 
-const useBreakpoint = createBreakpoint({ XL: 1280, L: 768, S: 400 });
+const useBreakpoint = createBreakpoint({
+  '2xl': 1536,
+  xl: 1280,
+  lg: 1024,
+  md: 768,
+  sm: 640,
+});
 
 export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
   const breakpoint = useBreakpoint();
   return (
     <div className="rounded">
-      <AspectRatio.Root ratio={breakpoint == 'S' ? 16 / 12 : 16 / 9}>
+      <AspectRatio.Root ratio={breakpoint == 'sm' ? 16 / 12 : 16 / 9}>
         <ResponsiveLine
           data={chartData}
           theme={chartCustomTheme}
