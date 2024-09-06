@@ -16,7 +16,10 @@ export default function HourForecastElement({
         </p>
       </div>
       <div className="flex justify-center">
-        <HourForecastIcon weatherName={weatherName} />
+        <HourForecastIcon
+          weatherName={weatherName}
+          weatherCode={hourForecast.weatherCode}
+        />
       </div>
       <div>
         {hourForecast.temperature ? (

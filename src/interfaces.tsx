@@ -27,7 +27,7 @@ export interface timelinesArrayInterface {
     uvHealthConcern?: number | null;
     uvIndex?: number | null;
     visibility?: number | null;
-    weatherCode?: number | null;
+    weatherCode: number;
     windDirection?: number | null;
     windGust?: number | null;
     windSpeed?: number | null;
@@ -63,7 +63,7 @@ export interface valuesInterface {
     uvHealthConcern?: number | null;
     uvIndex?: number | null;
     visibility?: number | null;
-    weatherCode?: number | null;
+    weatherCode: number;
     windDirection?: number | null;
     windGust?: number | null;
     windSpeed?: number | null;
@@ -76,6 +76,7 @@ export interface dayForecastCardInterface {
 
 export interface hourForecastIconInterface {
   weatherName: string;
+  weatherCode: number;
 }
 export interface horizontalScrollInterface {
   dayForecast: valuesInterface;
@@ -110,7 +111,7 @@ export interface hourForecastElementInterface {
     uvHealthConcern?: number | null;
     uvIndex?: number | null;
     visibility?: number | null;
-    weatherCode?: number | null;
+    weatherCode: number;
     windDirection?: number | null;
     windGust?: number | null;
     windSpeed?: number | null;
