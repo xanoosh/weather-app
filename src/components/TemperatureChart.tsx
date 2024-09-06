@@ -15,8 +15,11 @@ const useBreakpoint = createBreakpoint({
 export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
   const breakpoint = useBreakpoint();
 
-  if (breakpoint === 'sm') {
+  if (breakpoint === 'md') {
     chartCustomTheme.axis.ticks.text.fontSize = 9;
+  }
+  if (breakpoint === 'sm') {
+    chartCustomTheme.axis.ticks.text.fontSize = 7;
   }
   return (
     <div className="rounded">
