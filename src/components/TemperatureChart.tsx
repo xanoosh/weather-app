@@ -12,7 +12,10 @@ const useBreakpoint = createBreakpoint({
   sm: 640,
 });
 
-export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
+export const TemperatureChart = ({
+  chartData,
+  temperaturesArray,
+}: temperatureChartInterface) => {
   const breakpoint = useBreakpoint();
 
   if (breakpoint === 'md') {
@@ -49,7 +52,7 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
           yScale={{
             type: 'linear',
             min: 0,
-            max: 60,
+            max: temperaturesArray.sort()[temperaturesArray.length - 1] + 10,
             stacked: true,
             reverse: false,
           }}

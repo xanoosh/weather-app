@@ -128,4 +128,5 @@ export interface temperatureChartInterface {
     id: string;
     data: Array<{ x: string; y: string }>;
   }>;
+  temperaturesArray: Array<number>;
 }

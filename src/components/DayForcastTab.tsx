@@ -9,6 +9,9 @@ export default function DayForcastTab({
       {hour}: {temperature}
     </li>
   ));
+  const temperaturesArray = dayForecast.values.map(
+    ({ temperature }) => temperature
+  );
   const temperaturesChartData = [
     {
       id: 'temperature',
@@ -20,7 +23,10 @@ export default function DayForcastTab({
   ];
   return (
     <div className="flex flex-col gap-6">
-      <TemperatureChart chartData={temperaturesChartData} />
+      <TemperatureChart
+        chartData={temperaturesChartData}
+        temperaturesArray={temperaturesArray}
+      />
       <p className="text-2xl text-white font-semibold">Details</p>
       <div className="border-t border-white text-white">
         <dl>
