@@ -34,6 +34,5 @@ export const getDailyForecastArray = (
       });
     }
   });
-  console.log(dailyForcastArray);
   return dailyForcastArray;
 };

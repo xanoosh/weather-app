@@ -32,7 +32,6 @@ async function getWeatherData(
       throw new Error('Failed to fetch weather data');
     }
     const weatherData = await response.json();
-    console.log(weatherData);
     return weatherData;
   } catch (error) {
     console.error(error);
