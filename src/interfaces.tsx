@@ -22,7 +22,7 @@ export interface timelinesArrayInterface {
     snowAccumulationLwe?: number | null;
     snowDepth?: number | null;
     snowIntensity?: number | null;
-    temperature?: number | null;
+    temperature: number;
     temperatureApparent?: number | null;
     uvHealthConcern?: number | null;
     uvIndex?: number | null;
@@ -58,7 +58,7 @@ export interface valuesInterface {
     snowAccumulationLwe?: number | null;
     snowDepth?: number | null;
     snowIntensity?: number | null;
-    temperature?: number | null;
+    temperature: number;
     temperatureApparent?: number | null;
     uvHealthConcern?: number | null;
     uvIndex?: number | null;
@@ -106,7 +106,7 @@ export interface hourForecastElementInterface {
     snowAccumulationLwe?: number | null;
     snowDepth?: number | null;
     snowIntensity?: number | null;
-    temperature?: number | null;
+    temperature: number;
     temperatureApparent?: number | null;
     uvHealthConcern?: number | null;
     uvIndex?: number | null;
