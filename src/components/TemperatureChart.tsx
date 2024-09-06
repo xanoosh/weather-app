@@ -28,8 +28,8 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
             const temp = String(point.data.y) + '°C';
             const hour = String(point.data.x) + ':00';
             return (
-              <div className="border px-3 py-2 border-slate-200 rounded-sm bg-white flex flex-col gap-2">
-                <p className="text-sm text-slate-600">
+              <div className="border px-3 py-2 border-white rounded-sm bg-sky-500 flex flex-col gap-2">
+                <p className="text-sm text-white">
                   {temp} at {hour}
                 </p>
               </div>
@@ -72,11 +72,11 @@ export const TemperatureChart = ({ chartData }: temperatureChartInterface) => {
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          pointSize={3}
-          pointColor={{ theme: 'background' }}
+          pointSize={4}
+          pointColor={'#0ea5e9'}
           pointBorderWidth={1}
-          colors={['#fff', '#000000']}
-          pointBorderColor={{ from: 'serieColor' }}
+          colors={['#fff']}
+          pointBorderColor={'#fff'}
           pointLabelYOffset={-12}
           enableTouchCrosshair={true}
           useMesh={true}
