@@ -1,9 +1,9 @@
-import { dayForecastCardInterface } from '../interfaces';
+import { dayForecastTabInterface } from '../interfaces';
 import { TemperatureChart } from './TemperatureChart';
 
 export default function DayForcastTab({
   dayForecast,
-}: dayForecastCardInterface) {
+}: dayForecastTabInterface) {
   dayForecast.values.map(({ hour, temperature }, i) => (
     <li key={i}>
       {hour}: {temperature}
