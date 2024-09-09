@@ -3,6 +3,7 @@ import { Cross2Icon } from '@radix-ui/react-icons';
 import { hourForecastDialogInterface } from '../../interfaces';
 import HourForecastIcon from './HourForecastIcon';
 import DialogTable from './DialogTable';
+import Compass from '../Compass/Compass';
 
 export default function HourForecastDialog({
   hourForecast,
@@ -44,6 +45,8 @@ export default function HourForecastDialog({
             </div>
 
             <DialogTable hourForecast={hourForecast} />
+
+            <Compass windDirection={hourForecast.windDirection} />
           </Dialog.Description>
         </Dialog.Content>
       </Dialog.Portal>

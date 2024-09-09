@@ -79,3 +79,7 @@ export interface temperatureChartInterface {
   }>;
   temperaturesArray: Array<number>;
 }
+
+export interface CompassInterface {
+  windDirection?: number | null;
+}
