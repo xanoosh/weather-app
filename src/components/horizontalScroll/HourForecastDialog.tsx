@@ -9,7 +9,18 @@ export default function HourForecastDialog({
   hourForecast,
   weatherName,
 }: hourForecastDialogInterface) {
-  const tabs = ['General', 'Wind', 'Precipitation'];
+  const { windDirection, windSpeed, windGust, precipitationProbability } =
+    hourForecast;
+
+  const tabs = [
+    { name: 'General', isActive: true },
+    { name: 'Wind', isActive: windSpeed || windDirection || windGust },
+    {
+      name: 'Precipitation',
+      isActive: precipitationProbability,
+    },
+  ];
+
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -46,21 +57,25 @@ export default function HourForecastDialog({
             </div>
             <TabGroup>
               <TabList className="flex border-b-2 border-slate-300">
-                {tabs.map((el, i) => (
-                  <Tab
-                    key={i}
-                    className="border-b-2 -mb-[.1rem] border-transparent text-slate-400 basis-1/5 md:px-3 md:py-2 py-1 px-2  md:text-md text-sm focus:outline-none font-semibold data-[selected]:border-slate-600 data-[selected]:text-slate-600 data-[hover]:border-slate-600 data-[hover]:text-slate-600"
-                  >
-                    <p>{el}</p>
-                  </Tab>
-                ))}
+                {tabs.map(({ name, isActive }, i) =>
+                  isActive ? (
+                    <Tab
+                      key={i}
+                      className="border-b-2 -mb-[.1rem] border-transparent text-slate-400 basis-1/5 md:px-3 md:py-2 py-1 px-2  md:text-md text-sm focus:outline-none font-semibold data-[selected]:border-slate-600 data-[selected]:text-slate-600 data-[hover]:border-slate-600 data-[hover]:text-slate-600"
+                    >
+                      {name}
+                    </Tab>
+                  ) : null
+                )}
               </TabList>
               <TabPanels className="mt-3">
-                {tabs.map((el, i) => (
-                  <TabPanel key={i} className="rounded">
-                    <DialogTable variant={el} hourForecast={hourForecast} />
-                  </TabPanel>
-                ))}
+                {tabs.map(({ name, isActive }, i) =>
+                  isActive ? (
+                    <TabPanel key={i} className="rounded">
+                      <DialogTable variant={name} hourForecast={hourForecast} />
+                    </TabPanel>
+                  ) : null
+                )}
               </TabPanels>
             </TabGroup>
           </Dialog.Description>

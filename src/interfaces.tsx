@@ -11,6 +11,7 @@ interface hourForecastInterface {
   iceAccumulationLwe?: number | null;
   precipitationProbability?: number | null;
   precipitationIntensity?: number | null;
+  precipitationType?: number | null;
   pressureSurfaceLevel?: number | null;
   rainAccumulation?: number | null;
   rainAccumulationLwe?: number | null;
