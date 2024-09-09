@@ -13,7 +13,7 @@ export default function HourForecastDialog({
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-slate-500 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
+        <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-sky-500 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
           Details
         </button>
       </Dialog.Trigger>

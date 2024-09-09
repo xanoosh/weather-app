@@ -18,7 +18,7 @@ export default function DialogTable({
     pressureSurfaceLevel,
   } = hourForecast;
   return (
-    <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0">
+    <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0 mt-6 mb-2">
       {variant === 'General' ? (
         <>
           {humidity ? (

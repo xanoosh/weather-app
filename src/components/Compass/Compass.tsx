@@ -29,10 +29,17 @@ export default function Compass({ windDirection }: CompassInterface) {
         <motion.div
           className="h-16 w-4"
           animate={{
-            rotate: windDirection,
+            rotate: [
+              0,
+              windDirection + 20,
+              windDirection - 20,
+              windDirection + 10,
+              windDirection - 10,
+              windDirection,
+            ],
             transition: {
               delay: 0.3,
-              duration: 0.5,
+              duration: 0.7,
             },
           }}
           //   transition={{ delay: 0.5, duration: 0.7 }}
