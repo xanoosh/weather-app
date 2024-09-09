@@ -26,7 +26,7 @@ export const TemperatureChart = ({
   }
   return (
     <div className="rounded">
-      <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 12 : 16 / 9}>
+      <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 11 : 16 / 7}>
         <ResponsiveLine
           data={chartData}
           theme={chartCustomTheme}

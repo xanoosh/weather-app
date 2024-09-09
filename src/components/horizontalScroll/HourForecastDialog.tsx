@@ -30,7 +30,7 @@ export default function HourForecastDialog({
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
-        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded bg-white shadow-lg focus:outline-none px-2 py-3 flex flex-col gap-3 text-slate-500">
+        <Dialog.Content className="data-[state=open]:animate-contentShow fixed top-36 left-[50%] w-[90vw] max-w-[450px] translate-x-[-50%] rounded bg-white shadow-lg focus:outline-none px-2 py-3 flex flex-col gap-3 text-slate-500">
           <Dialog.Title className="flex justify-between pl-2">
             <h2 className="text-md font-semibold text-slate-600">
               Details
