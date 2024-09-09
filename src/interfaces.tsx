@@ -65,6 +65,7 @@ export interface hourForecastDialogInterface {
 
 export interface DialogTableInterface {
   hourForecast: hourForecastInterface;
+  variant: string;
 }
 
 export interface forecastTabsInterface {

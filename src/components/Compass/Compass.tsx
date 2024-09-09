@@ -1,4 +1,3 @@
-import './Compass.css';
 import { CompassInterface } from '../../interfaces';
 import { motion } from 'framer-motion';
 

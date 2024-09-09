@@ -1,6 +1,10 @@
 import { DialogTableInterface } from '../../interfaces';
+import Compass from '../Compass/Compass';
 
-export default function DialogTable({ hourForecast }: DialogTableInterface) {
+export default function DialogTable({
+  hourForecast,
+  variant,
+}: DialogTableInterface) {
   const {
     humidity,
     precipitationProbability,
@@ -15,71 +19,91 @@ export default function DialogTable({ hourForecast }: DialogTableInterface) {
   } = hourForecast;
   return (
     <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0">
-      {humidity ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">humidity:</div>
-          <div className="col-span-2">{humidity} %</div>
-        </div>
+      {variant === 'General' ? (
+        <>
+          {humidity ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">humidity:</div>
+              <div className="col-span-2">{humidity} %</div>
+            </div>
+          ) : null}
+          {visibility ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">visibility:</div>
+              <div className="col-span-2">{visibility} km</div>
+            </div>
+          ) : null}
+          {pressureSurfaceLevel ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">
+                pressure surface level:
+              </div>
+              <div className="col-span-2">{pressureSurfaceLevel} km</div>
+            </div>
+          ) : null}
+          {uvIndex ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">UV index:</div>
+              <div className="col-span-2">{uvIndex}</div>
+            </div>
+          ) : null}
+          {uvHealthConcern ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">uvHealthConcern:</div>
+              <div className="col-span-2">{uvHealthConcern}</div>
+            </div>
+          ) : null}
+        </>
       ) : null}
-      {visibility ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">visibility:</div>
-          <div className="col-span-2">{visibility} km</div>
-        </div>
-      ) : null}
-      {pressureSurfaceLevel ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">
-            pressure surface level:
+      {variant === 'Wind' ? (
+        <>
+          {windDirection ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">wind direction:</div>
+              <div className="col-span-2">{windDirection} deg</div>
+            </div>
+          ) : null}
+          {windSpeed ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">wind speed:</div>
+              <div className="col-span-2">{windSpeed} m/s</div>
+            </div>
+          ) : null}
+          {windGust ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">wind gust:</div>
+              <div className="col-span-2">{windGust} m/s</div>
+            </div>
+          ) : null}
+
+          <div className="flex justify-start gap-4 text-sm mt-4 mb-2">
+            <Compass windDirection={windDirection} />
+            <div>
+              <p className="font-semibold">Wind direction</p>
+              <p>{windDirection} degrees</p>
+            </div>
           </div>
-          <div className="col-span-2">{pressureSurfaceLevel} km</div>
-        </div>
+        </>
       ) : null}
-      {precipitationProbability ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">
-            precipitation probability:
-          </div>
-          <div className="col-span-2">{precipitationProbability} %</div>
-        </div>
-      ) : null}
-      {precipitationIntensity ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">
-            precipitation intensity:
-          </div>
-          <div className="col-span-2">{precipitationIntensity} mm/hr</div>
-        </div>
-      ) : null}
-      {windDirection ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">wind direction:</div>
-          <div className="col-span-2">{windDirection} deg</div>
-        </div>
-      ) : null}
-      {windSpeed ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">wind speed:</div>
-          <div className="col-span-2">{windSpeed} m/s</div>
-        </div>
-      ) : null}
-      {windGust ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">wind gust:</div>
-          <div className="col-span-2">{windGust} m/s</div>
-        </div>
-      ) : null}
-      {uvIndex ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">UV index:</div>
-          <div className="col-span-2">{uvIndex}</div>
-        </div>
-      ) : null}
-      {uvHealthConcern ? (
-        <div className="grid grid-cols-4">
-          <div className="col-span-2 font-semibold">uvHealthConcern:</div>
-          <div className="col-span-2">{uvHealthConcern}</div>
-        </div>
+      {variant === 'Precipitation' ? (
+        <>
+          {precipitationProbability ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">
+                precipitation probability:
+              </div>
+              <div className="col-span-2">{precipitationProbability} %</div>
+            </div>
+          ) : null}
+          {precipitationIntensity ? (
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">
+                precipitation intensity:
+              </div>
+              <div className="col-span-2">{precipitationIntensity} mm/hr</div>
+            </div>
+          ) : null}
+        </>
       ) : null}
     </div>
   );
