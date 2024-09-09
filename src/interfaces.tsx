@@ -10,6 +10,7 @@ interface hourForecastInterface {
   iceAccumulation?: number | null;
   iceAccumulationLwe?: number | null;
   precipitationProbability?: number | null;
+  precipitationIntensity?: number | null;
   pressureSurfaceLevel?: number | null;
   rainAccumulation?: number | null;
   rainAccumulationLwe?: number | null;
@@ -60,6 +61,10 @@ export interface hourForecastElementInterface {
 export interface hourForecastDialogInterface {
   hourForecast: hourForecastInterface;
   weatherName: string;
+}
+
+export interface DialogTableInterface {
+  hourForecast: hourForecastInterface;
 }
 
 export interface forecastTabsInterface {

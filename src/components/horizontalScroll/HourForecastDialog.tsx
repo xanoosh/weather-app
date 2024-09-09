@@ -2,6 +2,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { hourForecastDialogInterface } from '../../interfaces';
 import HourForecastIcon from './HourForecastIcon';
+import DialogTable from './DialogTable';
 
 export default function HourForecastDialog({
   hourForecast,
@@ -42,12 +43,7 @@ export default function HourForecastDialog({
               </div>
             </div>
 
-            <p className="text-sm">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Voluptatibus nemo, expedita doloribus corporis consectetur commodi
-              molestiae neque! Molestias nulla voluptates consectetur ipsa
-              veritatis quasi voluptatem, sequi molestiae, incidunt amet culpa?
-            </p>
+            <DialogTable hourForecast={hourForecast} />
           </Dialog.Description>
         </Dialog.Content>
       </Dialog.Portal>
