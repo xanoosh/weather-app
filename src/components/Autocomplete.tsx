@@ -20,6 +20,7 @@ export default function Autocomplete({ location }: autocompleteInterface) {
     <Combobox value={selectedLocation} onChange={setSelectedLocation}>
       <ComboboxInput />
       <ComboboxOptions>
+        {!isLoading && !data ? <p>no data</p> : null}
         {isLoading ? <p>loading</p> : null}
         {data
           ? data.map((location) => (

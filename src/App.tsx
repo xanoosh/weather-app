@@ -4,6 +4,7 @@ import { useWeatherData } from './hooks/useWeatherData';
 import ForecastTabs from './components/ForecastTabs';
 import Loader from './components/Loader';
 import Footer from './components/Footer';
+import Autocomplete from './components/Autocomplete';
 
 function App() {
   // const { latitude, longitude } = useGeolocation();
