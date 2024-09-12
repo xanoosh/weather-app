@@ -85,3 +85,10 @@ export interface temperatureChartInterface {
 export interface CompassInterface {
   windDirection?: number | null;
 }
+
+export interface autocompleteInterface {
+  location?: {
+    text: string;
+    parameters: { latitude: number; longitude: number };
+  };
+}

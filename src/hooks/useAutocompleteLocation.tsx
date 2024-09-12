@@ -20,8 +20,17 @@ async function getAutocompleteLocation(text: string) {
     }
     const autocompleteLocation = await response.json();
     const possibleLocations = autocompleteLocation.features.map(
-      (feature: { properties: { formatted: unknown } }) =>
-        feature.properties.formatted
+      (feature: {
+        properties: { formatted: string; lat: number; lon: number };
+      }) => {
+        return {
+          text: feature.properties.formatted,
+          parameters: {
+            latitude: feature.properties.lat,
+            longitude: feature.properties.lon,
+          },
+        };
+      }
     );
     console.log(possibleLocations);
     return possibleLocations;
