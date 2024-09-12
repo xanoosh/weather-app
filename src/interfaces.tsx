@@ -89,6 +89,6 @@ export interface CompassInterface {
 export interface autocompleteInterface {
   location?: {
     text: string;
-    parameters: { latitude: number; longitude: number };
+    parameters?: { latitude: number; longitude: number };
   };
 }
