@@ -11,11 +11,19 @@ const getInitialLocation = () => {
       };
 };
 
+type locationStoreType = {
+  location: {
+    text: string;
+    parameters: { latitude: number; longitude: number };
+  };
+  updateLocation: (location: locationStoreType['location']) => void;
+};
+
 export const useLocationStore = create(
-  persist(
+  persist<locationStoreType>(
     (set) => ({
       location: getInitialLocation(),
-      updateLocation: (newLocation: unknown) =>
+      updateLocation: (newLocation: locationStoreType['location']) =>
         set(() => ({ location: newLocation })),
     }),
     {

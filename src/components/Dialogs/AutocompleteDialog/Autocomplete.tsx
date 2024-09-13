@@ -40,10 +40,11 @@ export default function Autocomplete() {
           console.log(e);
           if (e) {
             setSelectedLocationText(e);
-            console.log(`set to`);
-            console.log(e);
             //here set global values - full location object & store it locally
-            updateLocation(e);
+            const newLocation = data.find(
+              (el: autocompleteInterface['location']) => el?.text === e
+            );
+            updateLocation(newLocation);
             //maybe close dialog after?
           }
         }}
@@ -87,7 +88,7 @@ export default function Autocomplete() {
                   return (
                     <ComboboxOption
                       key={location.text}
-                      value={location}
+                      value={location.text}
                       className="text-slate-700 py-1 px-2 hover:text-white hover:bg-sky-500"
                     >
                       {location.text}
