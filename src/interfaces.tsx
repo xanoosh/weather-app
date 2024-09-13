@@ -87,6 +87,7 @@ export interface compassInterface {
 }
 
 export interface autocompleteInterface {
+  closeDialog?: () => void;
   location?: {
     text: string;
     parameters?: { latitude: number; longitude: number };

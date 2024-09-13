@@ -2,10 +2,13 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Autocomplete from './Autocomplete';
+import { useState } from 'react';
 
 export default function AutocompleteDialog() {
+  const [isOpen, setIsOpen] = useState(false);
+  const closeDialog = () => setIsOpen(false);
   return (
-    <Dialog.Root>
+    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
         <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-sky-600 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
           Change location
@@ -30,6 +33,7 @@ export default function AutocompleteDialog() {
                 <button
                   className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-2 focus:ring-slate-500 focus:outline-none"
                   aria-label="Close"
+                  onClick={() => setIsOpen(false)}
                 >
                   <Cross2Icon />
                 </button>
@@ -41,7 +45,7 @@ export default function AutocompleteDialog() {
                   Type in new location and click on it to change the forecast
                   location.
                 </p>
-                <Autocomplete />
+                <Autocomplete closeDialog={closeDialog} />
               </div>
             </Dialog.Description>
           </motion.div>

@@ -11,7 +11,7 @@ import { autocompleteInterface } from '../../../interfaces';
 import Loader from '../../Loader';
 import { useLocationStore } from '../../../hooks/store/useLocationStore';
 
-export default function Autocomplete() {
+export default function Autocomplete({ closeDialog }: autocompleteInterface) {
   const { text } = useLocationStore((state) => state.location);
   const updateLocation = useLocationStore((state) => state.updateLocation);
   const [selectedLocationText, setSelectedLocationText] = useState(
@@ -40,12 +40,11 @@ export default function Autocomplete() {
           console.log(e);
           if (e) {
             setSelectedLocationText(e);
-            //here set global values - full location object & store it locally
             const newLocation = data.find(
               (el: autocompleteInterface['location']) => el?.text === e
             );
             updateLocation(newLocation);
-            //maybe close dialog after?
+            if (closeDialog) closeDialog();
           }
         }}
       >
