@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDebounce } from 'react-use';
 import {
   Combobox,
   ComboboxInput,
@@ -9,29 +10,31 @@ import { useAutocompleteLocation } from '../hooks/useAutocompleteLocation';
 import { autocompleteInterface } from '../interfaces';
 
 export default function Autocomplete({ location }: autocompleteInterface) {
-  const [selectedLocation, setSelectedLocation] = useState(
-    location ? location.text : ''
-  );
   const [selectedLocationText, setSelectedLocationText] = useState(
     location ? location.text : ''
   );
-  // const [locationList, setLocationList] = useState(
-  //   location
-  //     ? location
-  //     : { text: '', parameters: { latitude: 0, longitude: 0 } }
-  // );
+  const [selectedLocationTextDebounced, setSelectedLocationTextDebounced] =
+    useState(location ? location.text : '');
+
   const { data, isLoading } = useAutocompleteLocation({
-    text: selectedLocationText,
+    text: selectedLocationTextDebounced,
   });
-  console.log('selectedLocation', selectedLocation);
+
+  useDebounce(
+    () => {
+      setSelectedLocationTextDebounced(selectedLocationText);
+    },
+    500,
+    [selectedLocationText]
+  );
 
   return (
     <Combobox
-      value={selectedLocation}
+      value={selectedLocationText}
       onChange={(e) => {
         console.log(e);
         if (e) {
-          setSelectedLocation(e);
+          setSelectedLocationText(e);
           console.log(`set to`);
           console.log(e);
           //here set global values - full location object & store it locally
@@ -47,11 +50,13 @@ export default function Autocomplete({ location }: autocompleteInterface) {
       />
       <ComboboxOptions>
         {!isLoading && !data ? <p>no data</p> : null}
-        {isLoading ? <p>loading</p> : null}
-        {data
+        {isLoading || selectedLocationText !== selectedLocationTextDebounced ? (
+          <p>loading</p>
+        ) : null}
+        {data && selectedLocationText === selectedLocationTextDebounced
           ? data.map((location: autocompleteInterface['location']) => {
               if (location) {
-                console.log(location);
+                // console.log(location);
                 return (
                   <ComboboxOption key={location.text} value={location}>
                     {location.text}
