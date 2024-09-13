@@ -4,7 +4,7 @@ import Loader from './components/Loader';
 import Footer from './components/Footer';
 import { useLocationStore } from './hooks/store/useLocationStore';
 import AutocompleteDialog from './components/Dialogs/AutocompleteDialog/AutocompleteDialog';
-
+import { MapPinIcon } from '@heroicons/react/24/solid';
 function App() {
   const {
     text,
@@ -22,12 +22,10 @@ function App() {
         {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
         {isLoading ? <Loader size="lg" color="#fff" /> : null}
       </section>
-      <section className="flex gap-2 px-6 items-center justify-center">
-        <div>
-          <p className="text-xs text-white">
-            <span className="font-bold">Location: </span>
-            {text}
-          </p>
+      <section className="flex gap-4 px-6 items-center justify-center">
+        <div className="flex text-white gap-1 items-start">
+          <MapPinIcon width={16} />
+          <p className="text-xs ">{text}</p>
         </div>
         <div className="w-32">
           <AutocompleteDialog />

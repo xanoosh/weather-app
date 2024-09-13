@@ -12,6 +12,7 @@
   "dependencies": {
     "@geoapify/geocoder-autocomplete": "^2.0.3",
     "@headlessui/react": "^2.1.3",
+    "@heroicons/react": "^2.1.5",
     "@nivo/line": "^0.87.0",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-dialog": "^1.1.1",

@@ -51,8 +51,8 @@ export const TemperatureChart = ({
           xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',
-            min: 0,
-            max: temperaturesArray.sort()[temperaturesArray.length - 1] + 10,
+            min: temperaturesArray.sort()[0] - 5,
+            max: temperaturesArray.sort()[temperaturesArray.length - 1] + 5,
             stacked: true,
             reverse: false,
           }}
