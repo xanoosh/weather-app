@@ -82,7 +82,7 @@ export interface temperatureChartInterface {
   temperaturesArray: Array<number>;
 }
 
-export interface CompassInterface {
+export interface compassInterface {
   windDirection?: number | null;
 }
 
@@ -91,4 +91,9 @@ export interface autocompleteInterface {
     text: string;
     parameters?: { latitude: number; longitude: number };
   };
+}
+
+export interface loaderInterface {
+  size: 'sm' | 'lg';
+  color: string;
 }

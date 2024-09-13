@@ -1,7 +1,7 @@
-import { CompassInterface } from '../../interfaces';
+import { compassInterface } from '../../interfaces';
 import { motion } from 'framer-motion';
 
-export default function Compass({ windDirection }: CompassInterface) {
+export default function Compass({ windDirection }: compassInterface) {
   if (!windDirection) return null;
   console.log('windDirection', windDirection);
   console.log(typeof windDirection);

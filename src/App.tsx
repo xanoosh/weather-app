@@ -17,8 +17,7 @@ function App() {
     <main className="flex flex-col bg-sky-500 min-h-[100vh]">
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
-        {isLoading ? <Loader /> : null}
-        {/* <Loader /> */}
+        {isLoading ? <Loader size="lg" color="#fff" /> : null}
         {/* <Autocomplete /> */}
       </section>
       <Footer />

@@ -1,9 +1,21 @@
-import imgPath from '../assets/weather-icons/1101.png';
+import { Oval } from 'react-loader-spinner';
+import { loaderInterface } from '../interfaces';
 
-export default function Loader() {
+export default function Loader({ size, color }: loaderInterface) {
   return (
-    <div className="h-[70vh] flex justify-center items-center">
-      <img src={imgPath} alt="loader-img" className="animate-bounce" />
-    </div>
+    <Oval
+      visible={true}
+      height={size === 'lg' ? 80 : 30}
+      width="80"
+      strokeWidth={3}
+      color={color}
+      secondaryColor={color}
+      ariaLabel="oval-loading"
+      wrapperClass={
+        size === 'lg'
+          ? 'h-[100vh] w-[100vw] flex justify-center items-center'
+          : undefined
+      }
+    />
   );
 }
