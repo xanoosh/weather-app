@@ -8,7 +8,7 @@ export default function AutocompleteDialog() {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-sky-600 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
-          Change forecast location
+          Change location
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>

@@ -9,13 +9,16 @@ import {
 import { useAutocompleteLocation } from '../../../hooks/useAutocompleteLocation';
 import { autocompleteInterface } from '../../../interfaces';
 import Loader from '../../Loader';
+import { useLocationStore } from '../../../hooks/store/useLocationStore';
 
-export default function Autocomplete({ location }: autocompleteInterface) {
+export default function Autocomplete() {
+  const { text } = useLocationStore((state) => state.location);
+  const updateLocation = useLocationStore((state) => state.updateLocation);
   const [selectedLocationText, setSelectedLocationText] = useState(
-    location ? location.text : ''
+    text ? text : ''
   );
   const [selectedLocationTextDebounced, setSelectedLocationTextDebounced] =
-    useState(location ? location.text : '');
+    useState(text ? text : '');
 
   const { data, isLoading } = useAutocompleteLocation({
     text: selectedLocationTextDebounced,
@@ -40,6 +43,8 @@ export default function Autocomplete({ location }: autocompleteInterface) {
             console.log(`set to`);
             console.log(e);
             //here set global values - full location object & store it locally
+            updateLocation(e);
+            //maybe close dialog after?
           }
         }}
       >
