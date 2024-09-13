@@ -1,7 +1,7 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
-import { hourForecastDialogInterface } from '../../interfaces';
-import HourForecastIcon from './HourForecastIcon';
+import { hourForecastDialogInterface } from '../../../interfaces';
+import HourForecastIcon from '../../horizontalScroll/HourForecastIcon';
 import DialogTable from './DialogTable';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import { motion } from 'framer-motion';

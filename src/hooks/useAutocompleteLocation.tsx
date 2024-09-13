@@ -11,7 +11,7 @@ async function getAutocompleteLocation(text: string) {
   // console.log('getAutocompleteLocation Query start');
   try {
     const response = await fetch(
-      `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&apiKey=6fe3f1c5c54147d98c982aaf4d98f9a2`,
+      `https://api.geoapify.com/v1/geocode/autocomplete?text=${text}&limit=5&apiKey=6fe3f1c5c54147d98c982aaf4d98f9a2`,
       {
         method: 'GET',
       }

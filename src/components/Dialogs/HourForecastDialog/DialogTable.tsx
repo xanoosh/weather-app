@@ -1,7 +1,7 @@
-import { DialogTableInterface } from '../../interfaces';
-import { getPrecipitationType } from '../../utils/getPrecipitationType';
-import { getUvIndexHealthConcern } from '../../utils/getUvIndexHealthConcern';
-import Compass from '../Compass/Compass';
+import { DialogTableInterface } from '../../../interfaces';
+import { getUvIndexHealthConcern } from '../../../utils/getUvIndexHealthConcern';
+import Compass from '../../Compass/Compass';
+import { getPrecipitationType } from '../../../utils/getPrecipitationType';
 
 export default function DialogTable({
   hourForecast,

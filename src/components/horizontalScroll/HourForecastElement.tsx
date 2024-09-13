@@ -1,7 +1,7 @@
 import { hourForecastElementInterface } from '../../interfaces';
 import { getWeatherNameFromCode } from '../../utils/getWeatherNameFromCode';
 import HourForecastIcon from './HourForecastIcon';
-import HourForecastDialog from './HourForecastDialog';
+import HourForecastDialog from '../Dialogs/HourForecastDialog/HourForecastDialog';
 
 export default function HourForecastElement({
   hourForecast,

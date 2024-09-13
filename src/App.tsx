@@ -1,13 +1,9 @@
-// import { useGeolocation } from 'react-use';
-// import data from './globals';
 import { useWeatherData } from './hooks/useWeatherData';
 import ForecastTabs from './components/ForecastTabs';
 import Loader from './components/Loader';
 import Footer from './components/Footer';
-// import Autocomplete from './components/Autocomplete';
 
 function App() {
-  // const { latitude, longitude } = useGeolocation();
   const { data, isLoading } = useWeatherData({
     //warsaw
     latitude: 52.237049,
@@ -18,7 +14,6 @@ function App() {
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
         {isLoading ? <Loader size="lg" color="#fff" /> : null}
-        {/* <Autocomplete /> */}
       </section>
       <Footer />
     </main>
