@@ -36,7 +36,11 @@ export default function AutocompleteDialog() {
               </Dialog.Close>
             </Dialog.Title>
             <Dialog.Description className="px-2">
-              <div className="flex justify-start gap-4 text-sm mb-2">
+              <div className="flex flex-col gap-2 text-sm mb-2">
+                <p>
+                  Type in new location and click on it to change the forecast
+                  location.
+                </p>
                 <Autocomplete />
               </div>
             </Dialog.Description>

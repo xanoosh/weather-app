@@ -5,9 +5,9 @@ export default function Loader({ size, color }: loaderInterface) {
   return (
     <Oval
       visible={true}
-      height={size === 'lg' ? 80 : 30}
-      width="80"
-      strokeWidth={3}
+      height={size === 'lg' ? 80 : 20}
+      width={size === 'lg' ? 80 : 20}
+      strokeWidth={5}
       color={color}
       secondaryColor={color}
       ariaLabel="oval-loading"
