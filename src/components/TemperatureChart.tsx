@@ -3,6 +3,7 @@ import { ResponsiveLine } from '@nivo/line';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import { chartCustomTheme } from '../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
+import { getMinMaxTemp } from '../utils/getMinMaxTemp';
 
 const useBreakpoint = createBreakpoint({
   '2xl': 1536,
@@ -51,8 +52,8 @@ export const TemperatureChart = ({
           xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',
-            min: temperaturesArray.sort()[0] - 5,
-            max: temperaturesArray.sort()[temperaturesArray.length - 1] + 5,
+            min: getMinMaxTemp(temperaturesArray, 'min'),
+            max: getMinMaxTemp(temperaturesArray, 'max'),
             stacked: true,
             reverse: false,
           }}

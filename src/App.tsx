@@ -22,7 +22,7 @@ function App() {
         {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
         {isLoading ? <Loader size="lg" color="#fff" /> : null}
       </section>
-      <section className="flex gap-4 px-6 items-center justify-center">
+      <section className="flex flex-col gap-2 px-6 items-start justify-center w-80 mx-auto">
         <div className="flex text-white gap-1 items-start">
           <MapPinIcon width={16} />
           <p className="text-xs ">{text}</p>
