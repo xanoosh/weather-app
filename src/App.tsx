@@ -10,9 +10,7 @@ function App() {
     text,
     parameters: { latitude, longitude },
   } = useLocationStore((state) => state.location);
-  console.log('APP DATA', latitude, longitude);
   const { data, isLoading } = useWeatherData({
-    //warsaw
     latitude,
     longitude,
   });

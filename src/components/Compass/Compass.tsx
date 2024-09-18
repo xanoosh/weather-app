@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 
 export default function Compass({ windDirection }: compassInterface) {
   if (!windDirection) return null;
-  console.log('windDirection', windDirection);
-  console.log(typeof windDirection);
   return (
     <div>
       <div className="relative flex justify-center items-center bg-slate-700 rounded-full w-24 h-24">

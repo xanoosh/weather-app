@@ -37,7 +37,6 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
       <Combobox
         value={selectedLocationText}
         onChange={(e) => {
-          console.log(e);
           if (e) {
             setSelectedLocationText(e);
             const newLocation = data.find(
@@ -51,7 +50,6 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
         <ComboboxInput
           className="bg-white border border-slate-400 rounded py-1 px-2 w-full text-slate-700"
           onChange={(e) => {
-            console.log('ComboboxInput:', e.target.value);
             setSelectedLocationText(e.target.value);
           }}
           displayValue={(el: autocompleteInterface['location']) =>

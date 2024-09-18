@@ -17,9 +17,6 @@ async function getWeatherData(
   latitude: number | null,
   longitude: number | null
 ) {
-  // console.log('getWeatherData:');
-  // console.log('latitude', latitude);
-  // console.log('longitude', longitude);
   if (!latitude || !longitude) return null;
   try {
     const response = await fetch(
