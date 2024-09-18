@@ -31,7 +31,7 @@ export default function AutocompleteDialog() {
               </h2>
               <Dialog.Close asChild>
                 <button
-                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-sky-500 focus:outline-none"
                   aria-label="Close"
                   onClick={() => setIsOpen(false)}
                 >
@@ -40,7 +40,7 @@ export default function AutocompleteDialog() {
               </Dialog.Close>
             </Dialog.Title>
             <Dialog.Description className="px-2">
-              <div className="flex flex-col gap-2 text-sm mb-2">
+              <div className="flex flex-col gap-4 text-sm mb-2">
                 <p>
                   Type in new location and click on it to change the forecast
                   location.

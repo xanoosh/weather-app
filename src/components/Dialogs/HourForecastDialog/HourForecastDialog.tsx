@@ -49,7 +49,7 @@ export default function HourForecastDialog({
               </h2>
               <Dialog.Close asChild>
                 <button
-                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-2 focus:ring-slate-500 focus:outline-none"
+                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-sky-500 focus:outline-none"
                   aria-label="Close"
                 >
                   <Cross2Icon />
