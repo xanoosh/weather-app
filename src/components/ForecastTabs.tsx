@@ -28,7 +28,7 @@ export default function ForecastTabs({
         </TabList>
         <TabPanels className="mt-3">
           {dailyForecastArray.map((dayForecast, i) => (
-            <TabPanel key={i} className="rounded">
+            <TabPanel key={i} className="rounded focus:outline-none">
               <HorizontalScroll dayForecast={dayForecast} />
               <DayForcastTab dayForecast={dayForecast} key={i} />
             </TabPanel>

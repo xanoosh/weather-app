@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 interface hourForecastInterface {
   hour?: number;
   cloudBase?: number | null;
@@ -62,6 +64,7 @@ export interface hourForecastElementInterface {
 export interface hourForecastDialogInterface {
   hourForecast: hourForecastInterface;
   weatherName: string;
+  children: ReactNode;
 }
 
 export interface DialogTableInterface {
@@ -70,7 +73,6 @@ export interface DialogTableInterface {
 }
 
 export interface forecastTabsInterface {
-  // data: Array<valuesInterface>;
   hourlyForecast: Array<timelinesArrayInterface>;
 }
 
