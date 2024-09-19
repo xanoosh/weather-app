@@ -2,6 +2,7 @@ import { DialogTableInterface } from '../../../interfaces';
 import { getUvIndexHealthConcern } from '../../../utils/getUvIndexHealthConcern';
 import Compass from '../../Compass/Compass';
 import { getPrecipitationType } from '../../../utils/getPrecipitationType';
+import { getWindDirection } from '../../../utils/getWindDirection';
 
 export default function DialogTable({
   hourForecast,
@@ -99,8 +100,8 @@ export default function DialogTable({
           <div className="flex justify-start gap-4 text-sm mt-4 mb-2">
             <Compass windDirection={windDirection} />
             <div>
-              <p className="font-semibold">Wind direction</p>
-              <p>{windDirection} degrees</p>
+              <p className="font-semibold">Cardinal wind direction</p>
+              <p>{getWindDirection(windDirection)}</p>
             </div>
           </div>
         </>
