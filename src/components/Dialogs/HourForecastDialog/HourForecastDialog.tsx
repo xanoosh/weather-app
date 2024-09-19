@@ -25,12 +25,7 @@ export default function HourForecastDialog({
 
   return (
     <Dialog.Root>
-      <Dialog.Trigger asChild>
-        {/* <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-sky-500 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
-          Details
-        </button> */}
-        {children}
-      </Dialog.Trigger>
+      <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0" />
         <Dialog.Content
@@ -43,12 +38,13 @@ export default function HourForecastDialog({
             className="bg-white shadow-lg focus:outline-none px-2 py-3 flex flex-col gap-3 text-slate-500"
           >
             <Dialog.Title className="flex justify-between pl-2">
-              <h2 className="text-md font-semibold text-slate-600">
-                Details
-                <span className="pl-4 text-sm font-normal text-slate-400">
-                  {hourForecast.hour}:00
-                </span>
-              </h2>
+              <div className="flex justify-start gap-4 text-sm mb-2 pt-3">
+                <HourForecastIcon weatherCode={hourForecast.weatherCode} />
+                <div>
+                  <p>{weatherName}</p>
+                  <p>{hourForecast.hour}:00</p>
+                </div>
+              </div>
               <Dialog.Close asChild>
                 <button
                   className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-sky-500 focus:outline-none"
@@ -59,13 +55,6 @@ export default function HourForecastDialog({
               </Dialog.Close>
             </Dialog.Title>
             <Dialog.Description className="px-2">
-              <div className="flex justify-start gap-4 text-sm mb-2">
-                <HourForecastIcon weatherCode={hourForecast.weatherCode} />
-                <div>
-                  <p>{weatherName}</p>
-                  <p>temp: {hourForecast.temperature}°C</p>
-                </div>
-              </div>
               <TabGroup>
                 <TabList className="flex border-b-2 border-slate-300">
                   {tabs.map(({ name, isActive }, i) =>

@@ -24,13 +24,20 @@ export default function DialogTable({
     windGust,
     uvIndex,
     pressureSurfaceLevel,
+    temperature,
     temperatureApparent,
   } = hourForecast;
   return (
     <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0 mt-6 mb-2">
       {variant === 'General' ? (
         <>
-          {temperatureApparent ? (
+          {temperature ? (
+            <div className="grid grid-cols-5">
+              <div className="col-span-3 font-semibold">temperature:</div>
+              <div className="col-span-2">{temperatureApparent} °C</div>
+            </div>
+          ) : null}
+          {temperature ? (
             <div className="grid grid-cols-5">
               <div className="col-span-3 font-semibold">
                 temperature apparent:
