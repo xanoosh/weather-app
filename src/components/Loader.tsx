@@ -7,7 +7,7 @@ export default function Loader({ size, color }: loaderInterface) {
       visible={true}
       height={size === 'lg' ? 80 : 20}
       width={size === 'lg' ? 80 : 20}
-      strokeWidth={5}
+      strokeWidth={size === 'lg' ? 2 : 5}
       color={color}
       secondaryColor={color}
       ariaLabel="oval-loading"
