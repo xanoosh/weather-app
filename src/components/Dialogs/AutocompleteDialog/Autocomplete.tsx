@@ -57,7 +57,7 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
           }
           placeholder="type new location here"
         />
-        <ComboboxOptions className="border-2 border-sky-500 shadow-lg mt-1 bg-white rounded scrollbar scrollbar-thumb-sky-700 scrollbar-track-transparent overflow-y-scroll absolute top-[100%] left-0 right-0">
+        <ComboboxOptions className="shadow-lg mt-1 bg-white rounded scrollbar scrollbar-thumb-sky-700 scrollbar-track-transparent overflow-y-scroll absolute top-[100%] left-0 right-0">
           {data?.length === 0 &&
           selectedLocationText === selectedLocationTextDebounced &&
           !isLoading ? (
