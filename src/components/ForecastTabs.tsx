@@ -11,7 +11,7 @@ export default function ForecastTabs({
 }: forecastTabsInterface) {
   const dailyForecastArray = getDailyForecastArray(hourlyForecast);
   return (
-    <div className="lg:max-w-screen-md md:max-w-screen-sm max-w-[100%]">
+    <div className="lg:w-3/5 md:w-3/4 w-full">
       <TabGroup>
         <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between">
           {dailyForecastArray.map((dayForecast, i) => (
