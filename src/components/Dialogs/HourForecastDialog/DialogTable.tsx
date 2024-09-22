@@ -26,7 +26,6 @@ export default function DialogTable({
     uvIndex,
     pressureSurfaceLevel,
     temperature,
-    temperatureApparent,
   } = hourForecast;
   return (
     <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0 mt-6 mb-2">
@@ -88,7 +87,8 @@ export default function DialogTable({
               <div>
                 <p className="font-semibold">Wind direction</p>
                 <p>{getWindDirection(windDirection)}</p>
-                <p>Azimuth: {windDirection} deg</p>
+                <p className="font-semibold">Azimuth</p>
+                <p>{windDirection} deg</p>
               </div>
             </div>
           ) : null}
