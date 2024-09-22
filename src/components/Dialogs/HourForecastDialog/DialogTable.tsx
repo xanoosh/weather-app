@@ -34,27 +34,19 @@ export default function DialogTable({
         <>
           {temperature ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">temperature:</div>
-              <div className="col-span-2">{temperatureApparent} °C</div>
-            </div>
-          ) : null}
-          {temperature ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">
-                temperature apparent:
-              </div>
-              <div className="col-span-2">{temperatureApparent} °C</div>
+              <div className="col-span-3 font-semibold">Temperature:</div>
+              <div className="col-span-2">{temperature} °C</div>
             </div>
           ) : null}
           {humidity ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">humidity:</div>
+              <div className="col-span-3 font-semibold">Humidity:</div>
               <div className="col-span-2">{humidity} %</div>
             </div>
           ) : null}
           {visibility ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">visibility:</div>
+              <div className="col-span-3 font-semibold">Visibility:</div>
               <div className="col-span-2">{visibility} km</div>
             </div>
           ) : null}
@@ -78,32 +70,28 @@ export default function DialogTable({
       ) : null}
       {variant === 'Wind' ? (
         <>
-          {windDirection ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">wind direction:</div>
-              <div className="col-span-2">{windDirection} deg</div>
-            </div>
-          ) : null}
           {windSpeed ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">wind speed:</div>
+              <div className="col-span-3 font-semibold">Wind speed:</div>
               <div className="col-span-2">{windSpeed} m/s</div>
             </div>
           ) : null}
           {windGust ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">wind gust:</div>
+              <div className="col-span-3 font-semibold">Wind gust:</div>
               <div className="col-span-2">{windGust} m/s</div>
             </div>
           ) : null}
-
-          <div className="flex justify-start gap-4 text-sm mt-4 mb-2">
-            <Compass windDirection={windDirection} />
-            <div>
-              <p className="font-semibold">Cardinal wind direction</p>
-              <p>{getWindDirection(windDirection)}</p>
+          {windDirection ? (
+            <div className="flex justify-start gap-4 text-sm mt-4 mb-2">
+              <Compass windDirection={windDirection} />
+              <div>
+                <p className="font-semibold">Wind direction</p>
+                <p>{getWindDirection(windDirection)}</p>
+                <p>Azimuth: {windDirection} deg</p>
+              </div>
             </div>
-          </div>
+          ) : null}
         </>
       ) : null}
       {variant === 'Precipitation' ? (
@@ -119,7 +107,7 @@ export default function DialogTable({
           {precipitationType ? (
             <div className="grid grid-cols-5">
               <div className="col-span-3 font-semibold">
-                precipitation type:
+                Precipitation type:
               </div>
               <div className="col-span-2">
                 {getPrecipitationType(precipitationType)}
@@ -128,44 +116,44 @@ export default function DialogTable({
           ) : null}
           {rainIntensity ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">rain intensity:</div>
+              <div className="col-span-3 font-semibold">Rain intensity:</div>
               <div className="col-span-2">{rainIntensity} mm/hr</div>
             </div>
           ) : null}
           {rainAccumulation ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">rain accumulation:</div>
+              <div className="col-span-3 font-semibold">Rain accumulation:</div>
               <div className="col-span-2">{rainAccumulation} mm</div>
             </div>
           ) : null}
           {snowIntensity ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">snow intensity:</div>
+              <div className="col-span-3 font-semibold">Snow intensity:</div>
               <div className="col-span-2">{snowIntensity} mm/hr</div>
             </div>
           ) : null}
           {snowAccumulation ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">snow accumulation:</div>
+              <div className="col-span-3 font-semibold">Snow accumulation:</div>
               <div className="col-span-2">{snowAccumulation} mm</div>
             </div>
           ) : null}
           {snowDepth ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">snow snowDepth:</div>
+              <div className="col-span-3 font-semibold">Snow depth:</div>
               <div className="col-span-2">{snowDepth} cm</div>
             </div>
           ) : null}
           {sleetIntensity ? (
             <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">sleet intensity:</div>
+              <div className="col-span-3 font-semibold">Sleet intensity:</div>
               <div className="col-span-2">{sleetIntensity} mm/hr</div>
             </div>
           ) : null}
           {sleetAccumulation ? (
             <div className="grid grid-cols-5">
               <div className="col-span-3 font-semibold">
-                sleet accumulation:
+                Sleet accumulation:
               </div>
               <div className="col-span-2">{sleetAccumulation} mm</div>
             </div>

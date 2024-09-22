@@ -10,7 +10,7 @@ export default function AutocompleteDialog() {
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
-        <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-sky-600 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
+        <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-white/20 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
           Change location
         </button>
       </Dialog.Trigger>
@@ -31,7 +31,7 @@ export default function AutocompleteDialog() {
               </h2>
               <Dialog.Close asChild>
                 <button
-                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-sky-500 focus:outline-none"
+                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-sky-600 focus:outline-none"
                   aria-label="Close"
                   onClick={() => setIsOpen(false)}
                 >

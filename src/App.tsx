@@ -15,7 +15,7 @@ function App() {
     longitude,
   });
   return (
-    <main className="flex flex-col bg-sky-500 min-h-[100vh]">
+    <main className="flex flex-col bg-sky-600 min-h-[100vh]">
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
         {isLoading ? <Loader size="lg" color="#fff" /> : null}

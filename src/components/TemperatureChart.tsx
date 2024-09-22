@@ -35,7 +35,7 @@ export const TemperatureChart = ({
             const temp = String(point.data.y) + '°C';
             const hour = String(point.data.x) + ':00';
             return (
-              <div className="border px-3 py-2 border-white rounded-sm bg-sky-500 flex flex-col gap-2">
+              <div className="border px-3 py-2 border-white rounded-sm bg-sky-600 flex flex-col gap-2">
                 <p className="text-sm text-white">
                   {temp} at {hour}
                 </p>
