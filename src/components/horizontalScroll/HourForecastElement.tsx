@@ -2,6 +2,8 @@ import { hourForecastElementInterface } from '../../interfaces';
 import { getWeatherNameFromCode } from '../../utils/getWeatherNameFromCode';
 import HourForecastIcon from './HourForecastIcon';
 import HourForecastDialog from '../Dialogs/HourForecastDialog/HourForecastDialog';
+import Badge from '../Badge';
+import { OpacityIcon } from '@radix-ui/react-icons';
 
 export default function HourForecastElement({
   hourForecast,
@@ -14,6 +16,15 @@ export default function HourForecastElement({
       <button
         className={`py-3 px-4 flex flex-col gap-2 justify-center items-center text-white rounded min-w-28 border-2 border-transparent focus:outline-none focus:bg-white/20 relative ${afterElementStyle}`}
       >
+        <div className="absolute flex gap-2 top-1 left-1 w-full">
+          {hourForecast.precipitationProbability &&
+          hourForecast.precipitationProbability > 0 ? (
+            <Badge
+              icon={<OpacityIcon />}
+              tooltip={`Precipitation probability ~${hourForecast.precipitationProbability}%`}
+            />
+          ) : null}
+        </div>
         <div className="flex gap-0.5 items-center justify-center">
           <p className="text-xs font-semibold text-white/50">
             {hourForecast.hour}:00
