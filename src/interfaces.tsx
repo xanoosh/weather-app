@@ -100,3 +100,8 @@ export interface loaderInterface {
   size: 'sm' | 'lg';
   color: string;
 }
+
+export interface badgeInterface {
+  tooltip: string;
+  icon: ReactNode;
+}
