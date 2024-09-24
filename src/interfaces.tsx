@@ -105,3 +105,7 @@ export interface badgeInterface {
   tooltip: string;
   icon: ReactNode;
 }
+
+export interface humidityPillInterface {
+  percentage: number;
+}

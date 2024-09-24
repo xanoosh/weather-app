@@ -3,6 +3,7 @@ import { getUvIndexHealthConcern } from '../../../utils/getUvIndexHealthConcern'
 import Compass from '../../Compass/Compass';
 import { getPrecipitationType } from '../../../utils/getPrecipitationType';
 import { getWindDirection } from '../../../utils/getWindDirection';
+import HumidityPill from '../../horizontalScroll/HumidityPill';
 
 export default function DialogTable({
   hourForecast,
@@ -32,34 +33,34 @@ export default function DialogTable({
       {variant === 'General' ? (
         <>
           {temperature ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Temperature:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Temperature:</div>
               <div className="col-span-2">{temperature} °C</div>
             </div>
           ) : null}
           {humidity ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Humidity:</div>
-              <div className="col-span-2">{humidity} %</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Humidity:</div>
+              <div className="col-span-2">
+                <HumidityPill percentage={humidity} />
+              </div>
             </div>
           ) : null}
           {visibility ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Visibility:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Visibility:</div>
               <div className="col-span-2">{visibility} km</div>
             </div>
           ) : null}
           {pressureSurfaceLevel ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">
-                pressure surface level:
-              </div>
-              <div className="col-span-2">{pressureSurfaceLevel} km</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Pressure level:</div>
+              <div className="col-span-2">{pressureSurfaceLevel} hPa</div>
             </div>
           ) : null}
           {uvIndex ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">UV index:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">UV index:</div>
               <div className="col-span-2">
                 {uvIndex} ({getUvIndexHealthConcern(uvIndex)})
               </div>
@@ -70,14 +71,14 @@ export default function DialogTable({
       {variant === 'Wind' ? (
         <>
           {windSpeed ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Wind speed:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Wind speed:</div>
               <div className="col-span-2">{windSpeed} m/s</div>
             </div>
           ) : null}
           {windGust ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Wind gust:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Wind gust:</div>
               <div className="col-span-2">{windGust} m/s</div>
             </div>
           ) : null}
@@ -97,16 +98,16 @@ export default function DialogTable({
       {variant === 'Precipitation' ? (
         <>
           {precipitationProbability ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">
                 precipitation probability:
               </div>
               <div className="col-span-2">{precipitationProbability} %</div>
             </div>
           ) : null}
           {precipitationType ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">
                 Precipitation type:
               </div>
               <div className="col-span-2">
@@ -115,44 +116,44 @@ export default function DialogTable({
             </div>
           ) : null}
           {rainIntensity ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Rain intensity:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Rain intensity:</div>
               <div className="col-span-2">{rainIntensity} mm/hr</div>
             </div>
           ) : null}
           {rainAccumulation ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Rain accumulation:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Rain accumulation:</div>
               <div className="col-span-2">{rainAccumulation} mm</div>
             </div>
           ) : null}
           {snowIntensity ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Snow intensity:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Snow intensity:</div>
               <div className="col-span-2">{snowIntensity} mm/hr</div>
             </div>
           ) : null}
           {snowAccumulation ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Snow accumulation:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Snow accumulation:</div>
               <div className="col-span-2">{snowAccumulation} mm</div>
             </div>
           ) : null}
           {snowDepth ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Snow depth:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Snow depth:</div>
               <div className="col-span-2">{snowDepth} cm</div>
             </div>
           ) : null}
           {sleetIntensity ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">Sleet intensity:</div>
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">Sleet intensity:</div>
               <div className="col-span-2">{sleetIntensity} mm/hr</div>
             </div>
           ) : null}
           {sleetAccumulation ? (
-            <div className="grid grid-cols-5">
-              <div className="col-span-3 font-semibold">
+            <div className="grid grid-cols-4">
+              <div className="col-span-2 font-semibold">
                 Sleet accumulation:
               </div>
               <div className="col-span-2">{sleetAccumulation} mm</div>
