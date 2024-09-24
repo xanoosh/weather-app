@@ -100,7 +100,7 @@ export default function DialogTable({
           {precipitationProbability ? (
             <div className="grid grid-cols-4">
               <div className="col-span-2 font-semibold">
-                precipitation probability:
+                Precipitation probability:
               </div>
               <div className="col-span-2">{precipitationProbability} %</div>
             </div>
