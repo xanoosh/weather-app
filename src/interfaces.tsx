@@ -109,3 +109,6 @@ export interface badgeInterface {
 export interface humidityPillInterface {
   percentage: number;
 }
+export interface uvGradingInterface {
+  level: string;
+}
