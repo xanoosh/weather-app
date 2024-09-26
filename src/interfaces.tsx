@@ -110,5 +110,5 @@ export interface humidityPillInterface {
   percentage: number;
 }
 export interface uvGradingInterface {
-  level: string;
+  uvObject?: { name: string; degrees: number };
 }

@@ -4,6 +4,7 @@ import Compass from '../../Compass/Compass';
 import { getPrecipitationType } from '../../../utils/getPrecipitationType';
 import { getWindDirection } from '../../../utils/getWindDirection';
 import HumidityPill from '../../horizontalScroll/HumidityPill';
+import UvGrading from '../../horizontalScroll/UvGrading';
 
 export default function DialogTable({
   hourForecast,
@@ -62,7 +63,7 @@ export default function DialogTable({
             <div className="grid grid-cols-4">
               <div className="col-span-2 font-semibold">UV index:</div>
               <div className="col-span-2">
-                {uvIndex} ({getUvIndexHealthConcern(uvIndex)})
+                <UvGrading uvObject={getUvIndexHealthConcern(uvIndex)} />
               </div>
             </div>
           ) : null}
