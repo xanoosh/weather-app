@@ -7,7 +7,7 @@ export default function UvGrading({ uvObject }: uvGradingInterface) {
   return (
     <div className="flex gap-2">
       <p>{name}</p>
-      <div className="h-10 w-10 rounded-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-500 relative -mb-4 flex justify-center items-center">
+      <div className="h-10 w-10 rounded-full bg-gradient-to-r from-green-400 via-yellow-400 to-red-400 relative -mb-4 flex justify-center items-center">
         <div
           className={`h-10 pt-[10px] w-[px] relative z-10 ${degrees} -mt-1 flex flex-col items-center`}
         >
