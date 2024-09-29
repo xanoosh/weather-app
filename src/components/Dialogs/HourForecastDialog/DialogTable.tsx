@@ -4,7 +4,7 @@ import Compass from '../../Compass/Compass';
 import { getPrecipitationType } from '../../../utils/getPrecipitationType';
 import { getWindDirection } from '../../../utils/getWindDirection';
 import HumidityPill from '../../horizontalScroll/HumidityPill';
-import UvGrading from '../../horizontalScroll/UvGrading';
+import AnimatedLevel from '../../horizontalScroll/AnimatedLevel';
 
 export default function DialogTable({
   hourForecast,
@@ -29,6 +29,8 @@ export default function DialogTable({
     pressureSurfaceLevel,
     temperature,
   } = hourForecast;
+
+  const uvObject = uvIndex ? getUvIndexHealthConcern(uvIndex) : null;
   return (
     <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0 mt-6 mb-2">
       {variant === 'General' ? (
@@ -59,11 +61,11 @@ export default function DialogTable({
               <div className="col-span-2">{pressureSurfaceLevel} hPa</div>
             </div>
           ) : null}
-          {uvIndex ? (
+          {uvObject ? (
             <div className="grid grid-cols-4">
               <div className="col-span-2 font-semibold">UV index:</div>
               <div className="col-span-2">
-                <UvGrading uvObject={getUvIndexHealthConcern(uvIndex)} />
+                <AnimatedLevel name={uvObject?.name} level={uvObject?.level} />
               </div>
             </div>
           ) : null}
