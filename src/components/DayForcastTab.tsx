@@ -1,7 +1,5 @@
 import { dayForecastTabInterface } from '../interfaces';
 import ChartTabs from './Charts/ChartTabs';
-import TemperatureChart from './Charts/TemperatureChart';
-import WindChart from './Charts/WindChart';
 
 export default function DayForcastTab({
   dayForecast,
