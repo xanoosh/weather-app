@@ -1,7 +1,9 @@
 export const getMinMaxValue = (arr: Array<number>, variant: 'min' | 'max') => {
   switch (variant) {
     case 'min':
-      return arr.sort((a, b) => a - b)[0] - 5;
+      return arr.sort((a, b) => a - b)[0] - 5 >= 0
+        ? arr.sort((a, b) => a - b)[0] - 5
+        : 0;
     case 'max':
       return arr.sort((a, b) => b - a)[0] + 5;
   }

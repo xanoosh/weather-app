@@ -80,20 +80,15 @@ export interface forecastTabsInterface {
   hourlyForecast: Array<timelinesArrayInterface>;
 }
 
-export interface temperatureChartInterface {
+export interface lineChartInterface {
   chartData: Array<{
     id: string;
     data: Array<{ x: string; y: string }>;
   }>;
-  temperaturesArray: Array<number>;
-}
-
-export interface windChartInterface {
-  chartData: Array<{
-    id: string;
-    data: Array<{ x: string; y: string }>;
-  }>;
-  // temperaturesArray: Array<number>;
+  min: number;
+  max: number;
+  yAxisLegend: string;
+  unit: string;
 }
 
 export interface compassInterface {

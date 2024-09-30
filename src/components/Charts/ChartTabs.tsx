@@ -1,12 +1,18 @@
 import { chartTabsInterface } from '../../interfaces';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
-import TemperatureChart from './TemperatureChart';
-import WindChart from './WindChart';
-import HumidityChart from './HumidityChart';
+import LineChart from './LineChart';
+import { getMinMaxValue } from '../../utils/getMinMaxValue';
 
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   const temperaturesArray = dayForecast.values.map(
     ({ temperature }) => temperature
+  );
+  const windSpeedArray = dayForecast.values.map(
+    ({ windSpeed }) => windSpeed || 0
+  );
+  const windGustArray = dayForecast.values.map(({ windGust }) => windGust || 0);
+  const pressureArray = dayForecast.values.map(
+    ({ pressureSurfaceLevel }) => pressureSurfaceLevel || 0
   );
   const temperaturesChartData = [
     {
@@ -42,6 +48,15 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
       })),
     },
   ];
+  const pressureChartData = [
+    {
+      id: 'pressure',
+      data: dayForecast.values.map(({ hour, pressureSurfaceLevel }) => ({
+        x: `${hour}`,
+        y: `${pressureSurfaceLevel}`,
+      })),
+    },
+  ];
   return (
     <div className="w-full">
       <TabGroup>
@@ -64,19 +79,53 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
           >
             <p>Humidity</p>
           </Tab>
+          <Tab
+            key={'pressure'}
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/3 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+          >
+            <p>Pressure</p>
+          </Tab>
         </TabList>
         <TabPanels className="mt-3">
           <TabPanel key={'temperature'} className="rounded focus:outline-none">
-            <TemperatureChart
+            {/* TemperatureChart */}
+            <LineChart
               chartData={temperaturesChartData}
-              temperaturesArray={temperaturesArray}
+              min={getMinMaxValue(temperaturesArray, 'min')}
+              max={getMinMaxValue(temperaturesArray, 'max')}
+              yAxisLegend="temperature"
+              unit="°C"
             />
           </TabPanel>
           <TabPanel key={'wind'} className="rounded focus:outline-none">
-            <WindChart chartData={windChartData} />
+            {/* WindChart */}
+            <LineChart
+              chartData={windChartData}
+              min={getMinMaxValue(windSpeedArray, 'min')}
+              max={getMinMaxValue(windGustArray, 'max')}
+              yAxisLegend="Wind speed"
+              unit="m/s"
+            />
           </TabPanel>
           <TabPanel key={'humidity'} className="rounded focus:outline-none">
-            <HumidityChart chartData={humidityChartData} />
+            {/* HumididtyChart */}
+            <LineChart
+              chartData={humidityChartData}
+              min={0}
+              max={100}
+              yAxisLegend="Humidity"
+              unit="%"
+            />
+          </TabPanel>
+          <TabPanel key={'pressure'} className="rounded focus:outline-none">
+            {/* PressureChart */}
+            <LineChart
+              chartData={pressureChartData}
+              min={getMinMaxValue(pressureArray, 'min')}
+              max={getMinMaxValue(pressureArray, 'max')}
+              yAxisLegend="Pressure"
+              unit="hPa"
+            />
           </TabPanel>
         </TabPanels>
       </TabGroup>
