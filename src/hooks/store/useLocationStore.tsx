@@ -6,7 +6,7 @@ const getInitialLocation = () => {
   return location
     ? JSON.parse(location)
     : {
-        text: 'warsaw',
+        text: 'Warsaw, Poland',
         parameters: { latitude: 52.237049, longitude: 21.017532 },
       };
 };
