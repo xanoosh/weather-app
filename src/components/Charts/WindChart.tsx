@@ -77,9 +77,9 @@ export default function WindChart({ chartData }: windChartInterface) {
             truncateTickAt: 0,
           }}
           pointSize={4}
-          pointColor={'#0ea5e9'}
+          pointColor={'#fff'}
           pointBorderWidth={1}
-          colors={['#fff', '#f43f5e']}
+          colors={['#bae6fd', '#fff']}
           pointBorderColor={['#fff']}
           pointLabelYOffset={-12}
           enableTouchCrosshair={true}
