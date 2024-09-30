@@ -63,25 +63,25 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
         <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between">
           <Tab
             key={'temperature'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/3 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Temperature</p>
           </Tab>
           <Tab
             key={'wind'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/3 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Wind</p>
           </Tab>
           <Tab
             key={'humidity'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/3 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Humidity</p>
           </Tab>
           <Tab
             key={'pressure'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/3 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Pressure</p>
           </Tab>
