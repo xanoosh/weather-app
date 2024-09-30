@@ -1,5 +1,5 @@
 import { dayForecastTabInterface } from '../interfaces';
-import { TemperatureChart } from './TemperatureChart';
+import TemperatureChart from './Charts/TemperatureChart';
 
 export default function DayForcastTab({
   dayForecast,

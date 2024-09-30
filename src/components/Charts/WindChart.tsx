@@ -1,9 +1,9 @@
-import { temperatureChartInterface } from '../interfaces';
+import { temperatureChartInterface } from '../../interfaces';
 import { ResponsiveLine } from '@nivo/line';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-import { chartCustomTheme } from '../globals/chartCustomTheme';
+import { chartCustomTheme } from '../../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
-import { getMinMaxTemp } from '../utils/getMinMaxTemp';
+import { getMinMaxTemp } from '../../utils/getMinMaxTemp';
 
 const useBreakpoint = createBreakpoint({
   '2xl': 1536,
@@ -13,10 +13,10 @@ const useBreakpoint = createBreakpoint({
   sm: 640,
 });
 
-export const TemperatureChart = ({
+export default function WindChart({
   chartData,
   temperaturesArray,
-}: temperatureChartInterface) => {
+}: temperatureChartInterface) {
   const breakpoint = useBreakpoint();
 
   if (breakpoint === 'md') {
@@ -91,4 +91,4 @@ export const TemperatureChart = ({
       </AspectRatio.Root>
     </div>
   );
-};
+}
