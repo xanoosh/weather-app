@@ -1,4 +1,4 @@
-export const getMinMaxTemp = (arr: Array<number>, variant: 'min' | 'max') => {
+export const getMinMaxValue = (arr: Array<number>, variant: 'min' | 'max') => {
   switch (variant) {
     case 'min':
       return arr.sort((a, b) => a - b)[0] - 5;

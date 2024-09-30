@@ -1,5 +1,7 @@
 import { dayForecastTabInterface } from '../interfaces';
+import ChartTabs from './Charts/ChartTabs';
 import TemperatureChart from './Charts/TemperatureChart';
+import WindChart from './Charts/WindChart';
 
 export default function DayForcastTab({
   dayForecast,
@@ -9,25 +11,11 @@ export default function DayForcastTab({
       {hour}: {temperature}
     </li>
   ));
-  const temperaturesArray = dayForecast.values.map(
-    ({ temperature }) => temperature
-  );
-  const temperaturesChartData = [
-    {
-      id: 'temperature',
-      data: dayForecast.values.map(({ hour, temperature }) => ({
-        x: `${hour}`,
-        y: `${temperature}`,
-      })),
-    },
-  ];
+
   return (
     <div className="flex flex-col gap-6">
       {/* add some chart data for wind intensity, pressure etc. */}
-      <TemperatureChart
-        chartData={temperaturesChartData}
-        temperaturesArray={temperaturesArray}
-      />
+      <ChartTabs dayForecast={dayForecast} />
     </div>
   );
 }

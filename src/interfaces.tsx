@@ -49,6 +49,10 @@ export interface dayForecastTabInterface {
   dayForecast: valuesInterface;
 }
 
+export interface chartTabsInterface {
+  dayForecast: valuesInterface;
+}
+
 export interface hourForecastIconInterface {
   weatherName?: string;
   weatherCode: number;
@@ -82,6 +86,14 @@ export interface temperatureChartInterface {
     data: Array<{ x: string; y: string }>;
   }>;
   temperaturesArray: Array<number>;
+}
+
+export interface windChartInterface {
+  chartData: Array<{
+    id: string;
+    data: Array<{ x: string; y: string }>;
+  }>;
+  // temperaturesArray: Array<number>;
 }
 
 export interface compassInterface {

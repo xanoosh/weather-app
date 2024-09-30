@@ -1,9 +1,9 @@
-import { temperatureChartInterface } from '../../interfaces';
+import { windChartInterface } from '../../interfaces';
 import { ResponsiveLine } from '@nivo/line';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import { chartCustomTheme } from '../../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
-import { getMinMaxValue } from '../../utils/getMinMaxValue';
+// import { getMinMaxValue } from '../../utils/getMinMaxValue';
 
 const useBreakpoint = createBreakpoint({
   '2xl': 1536,
@@ -13,12 +13,8 @@ const useBreakpoint = createBreakpoint({
   sm: 640,
 });
 
-export default function TemperatureChart({
-  chartData,
-  temperaturesArray,
-}: temperatureChartInterface) {
+export default function HumidityChart({ chartData }: windChartInterface) {
   const breakpoint = useBreakpoint();
-  console.log('Chart data:', chartData);
 
   if (breakpoint === 'md') {
     chartCustomTheme.axis.ticks.text.fontSize = 9;
@@ -33,12 +29,12 @@ export default function TemperatureChart({
           data={chartData}
           theme={chartCustomTheme}
           tooltip={({ point }) => {
-            const temp = String(point.data.y) + '°C';
+            const humidity = String(point.data.y) + ' %';
             const hour = String(point.data.x) + ':00';
             return (
               <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
                 <p className="text-sm text-white">
-                  {temp} at {hour}
+                  {humidity} at {hour}
                 </p>
               </div>
             );
@@ -53,8 +49,8 @@ export default function TemperatureChart({
           xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',
-            min: getMinMaxValue(temperaturesArray, 'min'),
-            max: getMinMaxValue(temperaturesArray, 'max'),
+            // min: getMinMaxValue(temperaturesArray, 'min'),
+            // max: getMinMaxValue(temperaturesArray, 'max'),
             stacked: true,
             reverse: false,
           }}
@@ -75,7 +71,7 @@ export default function TemperatureChart({
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'temperature °C',
+            legend: 'Humidity (%)',
             legendOffset: -40,
             legendPosition: 'middle',
             truncateTickAt: 0,
@@ -83,8 +79,8 @@ export default function TemperatureChart({
           pointSize={4}
           pointColor={'#0ea5e9'}
           pointBorderWidth={1}
-          colors={['#fff']}
-          pointBorderColor={'#fff'}
+          colors={['#fff', '#f43f5e']}
+          pointBorderColor={['#fff']}
           pointLabelYOffset={-12}
           enableTouchCrosshair={true}
           useMesh={true}

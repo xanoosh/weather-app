@@ -1,9 +1,9 @@
-import { temperatureChartInterface } from '../../interfaces';
+import { windChartInterface } from '../../interfaces';
 import { ResponsiveLine } from '@nivo/line';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import { chartCustomTheme } from '../../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
-import { getMinMaxTemp } from '../../utils/getMinMaxTemp';
+// import { getMinMaxValue } from '../../utils/getMinMaxValue';
 
 const useBreakpoint = createBreakpoint({
   '2xl': 1536,
@@ -13,10 +13,7 @@ const useBreakpoint = createBreakpoint({
   sm: 640,
 });
 
-export default function WindChart({
-  chartData,
-  temperaturesArray,
-}: temperatureChartInterface) {
+export default function WindChart({ chartData }: windChartInterface) {
   const breakpoint = useBreakpoint();
 
   if (breakpoint === 'md') {
@@ -32,12 +29,12 @@ export default function WindChart({
           data={chartData}
           theme={chartCustomTheme}
           tooltip={({ point }) => {
-            const temp = String(point.data.y) + '°C';
+            const speed = String(point.data.y) + ' m/s';
             const hour = String(point.data.x) + ':00';
             return (
               <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
                 <p className="text-sm text-white">
-                  {temp} at {hour}
+                  {speed} at {hour}
                 </p>
               </div>
             );
@@ -52,8 +49,8 @@ export default function WindChart({
           xScale={{ type: 'point' }}
           yScale={{
             type: 'linear',
-            min: getMinMaxTemp(temperaturesArray, 'min'),
-            max: getMinMaxTemp(temperaturesArray, 'max'),
+            // min: getMinMaxValue(temperaturesArray, 'min'),
+            // max: getMinMaxValue(temperaturesArray, 'max'),
             stacked: true,
             reverse: false,
           }}
@@ -74,7 +71,7 @@ export default function WindChart({
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'temperature °C',
+            legend: 'Wind speed (m/s)',
             legendOffset: -40,
             legendPosition: 'middle',
             truncateTickAt: 0,
@@ -82,8 +79,8 @@ export default function WindChart({
           pointSize={4}
           pointColor={'#0ea5e9'}
           pointBorderWidth={1}
-          colors={['#fff']}
-          pointBorderColor={'#fff'}
+          colors={['#fff', '#f43f5e']}
+          pointBorderColor={['#fff']}
           pointLabelYOffset={-12}
           enableTouchCrosshair={true}
           useMesh={true}
