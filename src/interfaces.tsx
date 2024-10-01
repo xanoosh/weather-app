@@ -95,6 +95,7 @@ export interface barChartInterface {
   chartData: Array<{
     hour: string;
     humidity: number;
+    exactHumidity: number;
   }>;
   min: number;
   max: number;

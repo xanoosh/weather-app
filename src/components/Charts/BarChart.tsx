@@ -23,9 +23,11 @@ export default function BarChart({
 
   if (breakpoint === 'md') {
     chartCustomTheme.axis.ticks.text.fontSize = 9;
+    chartCustomTheme.text.fontSize = 9;
   }
   if (breakpoint === 'sm') {
     chartCustomTheme.axis.ticks.text.fontSize = 7;
+    chartCustomTheme.text.fontSize = 7;
   }
   return (
     <div className="rounded">
@@ -35,11 +37,20 @@ export default function BarChart({
           keys={['humidity']}
           indexBy="hour"
           padding={0.5}
-          enableLabel={false}
           maxValue={max}
           minValue={min}
-          enableTotals
           theme={chartCustomTheme}
+          enableLabel={false}
+          enableTotals
+          tooltip={({ data: { exactHumidity, hour } }) => {
+            return (
+              <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
+                <p className="text-sm text-white">
+                  humidity {exactHumidity}% at {hour}:00
+                </p>
+              </div>
+            );
+          }}
           margin={{
             left: 45,
             right: 10,
@@ -67,8 +78,6 @@ export default function BarChart({
             truncateTickAt: 0,
           }}
           colors={['#38bdf8']}
-          //sky-400   38bdf8
-          //sky-300   7dd3fc
         />
       </AspectRatio.Root>
     </div>

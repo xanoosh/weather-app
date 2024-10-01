@@ -41,8 +41,9 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
     },
   ];
   const humidityChartData = dayForecast.values.map(({ hour, humidity }) => ({
-    hour: `${hour}:00`,
-    humidity: humidity || 0,
+    hour: `${hour}`,
+    humidity: humidity ? Math.round(humidity) : 0,
+    exactHumidity: humidity ? humidity : 0,
   }));
   const pressureChartData = [
     {
