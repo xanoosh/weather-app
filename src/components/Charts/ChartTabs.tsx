@@ -2,6 +2,7 @@ import { chartTabsInterface } from '../../interfaces';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 import LineChart from './LineChart';
 import { getMinMaxValue } from '../../utils/getMinMaxValue';
+import BarChart from './BarChart';
 
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   const temperaturesArray = dayForecast.values.map(
@@ -39,15 +40,10 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
       })),
     },
   ];
-  const humidityChartData = [
-    {
-      id: 'humidity',
-      data: dayForecast.values.map(({ hour, humidity }) => ({
-        x: `${hour}`,
-        y: `${humidity}`,
-      })),
-    },
-  ];
+  const humidityChartData = dayForecast.values.map(({ hour, humidity }) => ({
+    hour: `${hour}:00`,
+    humidity: humidity || 0,
+  }));
   const pressureChartData = [
     {
       id: 'pressure',
@@ -109,7 +105,7 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
           </TabPanel>
           <TabPanel key={'humidity'} className="rounded focus:outline-none">
             {/* HumididtyChart */}
-            <LineChart
+            <BarChart
               chartData={humidityChartData}
               min={0}
               max={100}

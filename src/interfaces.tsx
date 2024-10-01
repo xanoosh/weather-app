@@ -91,6 +91,17 @@ export interface lineChartInterface {
   unit: string;
 }
 
+export interface barChartInterface {
+  chartData: Array<{
+    hour: string;
+    humidity: number;
+  }>;
+  min: number;
+  max: number;
+  yAxisLegend: string;
+  unit: string;
+}
+
 export interface compassInterface {
   windDirection?: number | null;
 }
