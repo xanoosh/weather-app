@@ -4,8 +4,13 @@ import { getMinMaxValue } from '../../utils/getMinMaxValue';
 import LineChart from './ChartVariants/LineChart';
 import BarChart from './ChartVariants/BarChart';
 import StreamChart from './ChartVariants/StreamChart';
+import { ChartTabContext } from '../ForecastTabs';
+import { useContext } from 'react';
+import { motion } from 'framer-motion';
 
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
+  const context = useContext(ChartTabContext);
+
   const temperaturesArray = dayForecast.values.map(
     ({ temperature }) => temperature
   );
@@ -45,29 +50,32 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   ];
   return (
     <div className="w-full">
-      <TabGroup>
+      <TabGroup
+        selectedIndex={context?.chartTabIndex}
+        onChange={(e) => context?.setChartTabIndex(e)}
+      >
         <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between">
           <Tab
             key={'temperature'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Temperature</p>
           </Tab>
           <Tab
             key={'wind'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Wind</p>
           </Tab>
           <Tab
             key={'humidity'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Humidity</p>
           </Tab>
           <Tab
             key={'pressure'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
           >
             <p>Pressure</p>
           </Tab>
@@ -75,41 +83,81 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
         <TabPanels className="mt-3">
           <TabPanel key={'temperature'} className="rounded focus:outline-none">
             {/* TemperatureChart */}
-            <LineChart
-              chartData={temperaturesChartData}
-              min={getMinMaxValue(temperaturesArray, 'min')}
-              max={getMinMaxValue(temperaturesArray, 'max')}
-              yAxisLegend="temperature"
-              unit="°C"
-            />
+            <motion.div
+              animate={{
+                opacity: [0, 1],
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <LineChart
+                chartData={temperaturesChartData}
+                min={getMinMaxValue(temperaturesArray, 'min')}
+                max={getMinMaxValue(temperaturesArray, 'max')}
+                yAxisLegend="temperature"
+                unit="°C"
+              />
+            </motion.div>
           </TabPanel>
           <TabPanel key={'wind'} className="rounded focus:outline-none">
             {/* WindChart */}
-            <StreamChart
-              chartData={windChartData}
-              yAxisLegend="Wind"
-              unit="m/s"
-            />
+            <motion.div
+              animate={{
+                opacity: [0, 1],
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <StreamChart
+                chartData={windChartData}
+                yAxisLegend="Wind"
+                unit="m/s"
+              />
+            </motion.div>
           </TabPanel>
           <TabPanel key={'humidity'} className="rounded focus:outline-none">
             {/* HumididtyChart */}
-            <BarChart
-              chartData={humidityChartData}
-              min={0}
-              max={100}
-              yAxisLegend="Humidity"
-              unit="%"
-            />
+            <motion.div
+              animate={{
+                opacity: [0, 1],
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <BarChart
+                chartData={humidityChartData}
+                min={0}
+                max={100}
+                yAxisLegend="Humidity"
+                unit="%"
+              />
+            </motion.div>
           </TabPanel>
           <TabPanel key={'pressure'} className="rounded focus:outline-none">
             {/* PressureChart */}
-            <LineChart
-              chartData={pressureChartData}
-              min={getMinMaxValue(pressureArray, 'min')}
-              max={getMinMaxValue(pressureArray, 'max')}
-              yAxisLegend="Pressure"
-              unit="hPa"
-            />
+            <motion.div
+              animate={{
+                opacity: [0, 1],
+                transition: {
+                  duration: 0.2,
+                },
+              }}
+              exit={{ opacity: 0 }}
+            >
+              <LineChart
+                chartData={pressureChartData}
+                min={getMinMaxValue(pressureArray, 'min')}
+                max={getMinMaxValue(pressureArray, 'max')}
+                yAxisLegend="Pressure"
+                unit="hPa"
+              />
+            </motion.div>
           </TabPanel>
         </TabPanels>
       </TabGroup>
