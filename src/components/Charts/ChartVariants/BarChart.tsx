@@ -35,6 +35,8 @@ export default function BarChart({
         <ResponsiveBar
           data={chartData}
           keys={['humidity']}
+          animate={true}
+          motionConfig="stiff"
           indexBy="hour"
           padding={0.5}
           maxValue={max}
@@ -44,8 +46,8 @@ export default function BarChart({
           enableTotals
           tooltip={({ data: { exactHumidity, hour } }) => {
             return (
-              <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
-                <p className="text-sm text-white">
+              <div className="px-3 py-2 rounded-sm bg-white shadow-md flex flex-col gap-2">
+                <p className="text-xs text-slate-700">
                   humidity {exactHumidity}% at {hour}:00
                 </p>
               </div>

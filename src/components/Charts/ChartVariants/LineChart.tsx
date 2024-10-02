@@ -37,8 +37,8 @@ export default function LineChart({
             const val = `${String(point.data.y)}${unit}`;
             const hour = `${String(point.data.x)}:00`;
             return (
-              <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
-                <p className="text-sm text-white">
+              <div className="px-3 py-2 rounded-sm bg-white shadow-md flex flex-col gap-2">
+                <p className="text-xs text-slate-700">
                   {val} at {hour}
                 </p>
               </div>
@@ -81,6 +81,8 @@ export default function LineChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
+          animate={true}
+          motionConfig="stiff"
           pointSize={4}
           pointColor={'#0ea5e9'}
           pointBorderWidth={1}

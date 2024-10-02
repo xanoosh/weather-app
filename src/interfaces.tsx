@@ -105,8 +105,8 @@ export interface barChartInterface {
 
 export interface streamChartInterface {
   chartData: Array<{
-    ['Wind speed']: number;
-    ['Wind gust']: number;
+    ['Wind speed (m/s)']: number;
+    ['Wind gust (m/s)']: number;
     hour: number;
   }>;
   yAxisLegend: string;

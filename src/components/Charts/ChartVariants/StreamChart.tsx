@@ -32,11 +32,11 @@ export default function StreamChart({
       <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 11 : 16 / 7}>
         <ResponsiveStream
           data={chartData}
-          keys={['Wind speed', 'Wind gust']}
+          keys={['Wind speed (m/s)', 'Wind gust (m/s)']}
           enableGridX={true}
           fillOpacity={0.6}
           animate={true}
-          motionConfig="wobbly"
+          motionConfig="stiff"
           theme={chartCustomTheme}
           margin={{
             left: 45,
@@ -56,6 +56,7 @@ export default function StreamChart({
             truncateTickAt: 0,
             format: (index) => chartData[index].hour,
           }}
+          offsetType="diverging"
           axisLeft={{
             renderTick: () => <></>,
             legend: `${yAxisLegend} (${unit})`,
@@ -63,6 +64,19 @@ export default function StreamChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
+          // stackTooltip={(el) => {
+          //   console.log(el);
+          //   // const val = `${String(point.data.y)}${unit}`;
+          //   // const hour = `${String(point.data.x)}:00`;
+          //   return (
+          //     <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
+          //       <p className="text-sm text-white">
+          //         {/* {val} at {hour} */}
+          //         bububu
+          //       </p>
+          //     </div>
+          //   );
+          // }}
           colors={['#38bdf8', '#fb7185']}
         />
       </AspectRatio.Root>

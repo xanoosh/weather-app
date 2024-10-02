@@ -9,10 +9,6 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   const temperaturesArray = dayForecast.values.map(
     ({ temperature }) => temperature
   );
-  // const windSpeedArray = dayForecast.values.map(
-  //   ({ windSpeed }) => windSpeed || 0
-  // );
-  // const windGustArray = dayForecast.values.map(({ windGust }) => windGust || 0);
   const pressureArray = dayForecast.values.map(
     ({ pressureSurfaceLevel }) => pressureSurfaceLevel || 0
   );
@@ -25,27 +21,12 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
       })),
     },
   ];
-  // const windChartData = [
-  //   {
-  //     id: 'windSpeed',
-  //     data: dayForecast.values.map(({ hour, windSpeed }) => ({
-  //       x: `${hour}`,
-  //       y: `${windSpeed}`,
-  //     })),
-  //   },
-  //   {
-  //     id: 'windGust',
-  //     data: dayForecast.values.map(({ hour, windGust }) => ({
-  //       x: `${hour}`,
-  //       y: `${windGust}`,
-  //     })),
-  //   },
-  // ];
+
   const windChartData = dayForecast.values.map(
     ({ hour, windGust, windSpeed }) => ({
       hour: hour || 0,
-      ['Wind speed']: windSpeed || 0,
-      ['Wind gust']: windGust || 0,
+      ['Wind speed (m/s)']: windSpeed || 0,
+      ['Wind gust (m/s)']: windGust || 0,
     })
   );
   const humidityChartData = dayForecast.values.map(({ hour, humidity }) => ({
@@ -106,7 +87,7 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
             {/* WindChart */}
             <StreamChart
               chartData={windChartData}
-              yAxisLegend="Wind speed"
+              yAxisLegend="Wind"
               unit="m/s"
             />
           </TabPanel>
