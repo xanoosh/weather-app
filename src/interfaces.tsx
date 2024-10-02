@@ -103,6 +103,16 @@ export interface barChartInterface {
   unit: string;
 }
 
+export interface streamChartInterface {
+  chartData: Array<{
+    ['Wind speed']: number;
+    ['Wind gust']: number;
+    hour: number;
+  }>;
+  yAxisLegend: string;
+  unit: string;
+}
+
 export interface compassInterface {
   windDirection?: number | null;
 }

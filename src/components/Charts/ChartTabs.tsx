@@ -1,17 +1,18 @@
 import { chartTabsInterface } from '../../interfaces';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
-import LineChart from './LineChart';
 import { getMinMaxValue } from '../../utils/getMinMaxValue';
-import BarChart from './BarChart';
+import LineChart from './ChartVariants/LineChart';
+import BarChart from './ChartVariants/BarChart';
+import StreamChart from './ChartVariants/StreamChart';
 
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   const temperaturesArray = dayForecast.values.map(
     ({ temperature }) => temperature
   );
-  const windSpeedArray = dayForecast.values.map(
-    ({ windSpeed }) => windSpeed || 0
-  );
-  const windGustArray = dayForecast.values.map(({ windGust }) => windGust || 0);
+  // const windSpeedArray = dayForecast.values.map(
+  //   ({ windSpeed }) => windSpeed || 0
+  // );
+  // const windGustArray = dayForecast.values.map(({ windGust }) => windGust || 0);
   const pressureArray = dayForecast.values.map(
     ({ pressureSurfaceLevel }) => pressureSurfaceLevel || 0
   );
@@ -24,22 +25,29 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
       })),
     },
   ];
-  const windChartData = [
-    {
-      id: 'windSpeed',
-      data: dayForecast.values.map(({ hour, windSpeed }) => ({
-        x: `${hour}`,
-        y: `${windSpeed}`,
-      })),
-    },
-    {
-      id: 'windGust',
-      data: dayForecast.values.map(({ hour, windGust }) => ({
-        x: `${hour}`,
-        y: `${windGust}`,
-      })),
-    },
-  ];
+  // const windChartData = [
+  //   {
+  //     id: 'windSpeed',
+  //     data: dayForecast.values.map(({ hour, windSpeed }) => ({
+  //       x: `${hour}`,
+  //       y: `${windSpeed}`,
+  //     })),
+  //   },
+  //   {
+  //     id: 'windGust',
+  //     data: dayForecast.values.map(({ hour, windGust }) => ({
+  //       x: `${hour}`,
+  //       y: `${windGust}`,
+  //     })),
+  //   },
+  // ];
+  const windChartData = dayForecast.values.map(
+    ({ hour, windGust, windSpeed }) => ({
+      hour: hour || 0,
+      ['Wind speed']: windSpeed || 0,
+      ['Wind gust']: windGust || 0,
+    })
+  );
   const humidityChartData = dayForecast.values.map(({ hour, humidity }) => ({
     hour: `${hour}`,
     humidity: humidity ? Math.round(humidity) : 0,
@@ -96,10 +104,8 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
           </TabPanel>
           <TabPanel key={'wind'} className="rounded focus:outline-none">
             {/* WindChart */}
-            <LineChart
+            <StreamChart
               chartData={windChartData}
-              min={getMinMaxValue(windSpeedArray, 'min')}
-              max={getMinMaxValue(windGustArray, 'max')}
               yAxisLegend="Wind speed"
               unit="m/s"
             />

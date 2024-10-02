@@ -1,8 +1,8 @@
-import { barChartInterface } from '../../interfaces';
-import { ResponsiveBar } from '@nivo/bar';
+import { streamChartInterface } from '../../../interfaces';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-import { chartCustomTheme } from '../../globals/chartCustomTheme';
+import { chartCustomTheme } from '../../../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
+import { ResponsiveStream } from '@nivo/stream';
 
 const useBreakpoint = createBreakpoint({
   '2xl': 1536,
@@ -12,13 +12,11 @@ const useBreakpoint = createBreakpoint({
   sm: 640,
 });
 
-export default function BarChart({
+export default function StreamChart({
   chartData,
-  min,
-  max,
   yAxisLegend,
   unit,
-}: barChartInterface) {
+}: streamChartInterface) {
   const breakpoint = useBreakpoint();
 
   if (breakpoint === 'md') {
@@ -32,25 +30,14 @@ export default function BarChart({
   return (
     <div className="rounded">
       <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 11 : 16 / 7}>
-        <ResponsiveBar
+        <ResponsiveStream
           data={chartData}
-          keys={['humidity']}
-          indexBy="hour"
-          padding={0.5}
-          maxValue={max}
-          minValue={min}
+          keys={['Wind speed', 'Wind gust']}
+          enableGridX={true}
+          fillOpacity={0.6}
+          animate={true}
+          motionConfig="wobbly"
           theme={chartCustomTheme}
-          enableLabel={false}
-          enableTotals
-          tooltip={({ data: { exactHumidity, hour } }) => {
-            return (
-              <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
-                <p className="text-sm text-white">
-                  humidity {exactHumidity}% at {hour}:00
-                </p>
-              </div>
-            );
-          }}
           margin={{
             left: 45,
             right: 10,
@@ -67,17 +54,16 @@ export default function BarChart({
             legendOffset: 35,
             legendPosition: 'middle',
             truncateTickAt: 0,
+            format: (index) => chartData[index].hour,
           }}
           axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
+            renderTick: () => <></>,
             legend: `${yAxisLegend} (${unit})`,
             legendOffset: -40,
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          colors={['#38bdf8']}
+          colors={['#38bdf8', '#fb7185']}
         />
       </AspectRatio.Root>
     </div>

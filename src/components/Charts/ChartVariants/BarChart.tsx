@@ -1,7 +1,7 @@
-import { lineChartInterface } from '../../interfaces';
-import { ResponsiveLine } from '@nivo/line';
+import { barChartInterface } from '../../../interfaces';
+import { ResponsiveBar } from '@nivo/bar';
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
-import { chartCustomTheme } from '../../globals/chartCustomTheme';
+import { chartCustomTheme } from '../../../globals/chartCustomTheme';
 import { createBreakpoint } from 'react-use';
 
 const useBreakpoint = createBreakpoint({
@@ -12,55 +12,51 @@ const useBreakpoint = createBreakpoint({
   sm: 640,
 });
 
-export default function LineChart({
+export default function BarChart({
   chartData,
   min,
   max,
   yAxisLegend,
   unit,
-}: lineChartInterface) {
+}: barChartInterface) {
   const breakpoint = useBreakpoint();
 
   if (breakpoint === 'md') {
     chartCustomTheme.axis.ticks.text.fontSize = 9;
+    chartCustomTheme.text.fontSize = 9;
   }
   if (breakpoint === 'sm') {
     chartCustomTheme.axis.ticks.text.fontSize = 7;
+    chartCustomTheme.text.fontSize = 7;
   }
   return (
     <div className="rounded">
       <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 11 : 16 / 7}>
-        <ResponsiveLine
+        <ResponsiveBar
           data={chartData}
+          keys={['humidity']}
+          indexBy="hour"
+          padding={0.5}
+          maxValue={max}
+          minValue={min}
           theme={chartCustomTheme}
-          tooltip={({ point }) => {
-            const val = `${String(point.data.y)}${unit}`;
-            const hour = `${String(point.data.x)}:00`;
+          enableLabel={false}
+          enableTotals
+          tooltip={({ data: { exactHumidity, hour } }) => {
             return (
               <div className="px-3 py-2 rounded-sm bg-sky-600 shadow-md flex flex-col gap-2">
                 <p className="text-sm text-white">
-                  {val} at {hour}
+                  humidity {exactHumidity}% at {hour}:00
                 </p>
               </div>
             );
           }}
-          // onClick={(point) => console.log('clicked point:', point.data)}
           margin={{
             left: 45,
             right: 10,
             bottom: 40,
             top: 20,
           }}
-          xScale={{ type: 'point' }}
-          yScale={{
-            type: 'linear',
-            min: min,
-            max: max,
-            stacked: true,
-            reverse: false,
-          }}
-          yFormat=" >-.2f"
-          curve="natural"
           axisTop={null}
           axisRight={null}
           axisBottom={{
@@ -81,14 +77,7 @@ export default function LineChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          pointSize={4}
-          pointColor={'#0ea5e9'}
-          pointBorderWidth={1}
-          colors={['#fff']}
-          pointBorderColor={'#fff'}
-          pointLabelYOffset={-12}
-          enableTouchCrosshair={true}
-          useMesh={true}
+          colors={['#38bdf8']}
         />
       </AspectRatio.Root>
     </div>
