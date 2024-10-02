@@ -38,7 +38,7 @@ export default function BarChart({
           animate={true}
           motionConfig="stiff"
           indexBy="hour"
-          padding={0.5}
+          padding={0.3}
           maxValue={max}
           minValue={min}
           theme={chartCustomTheme}
@@ -79,7 +79,7 @@ export default function BarChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          colors={['#38bdf8']}
+          colors={['#38bdf888']}
         />
       </AspectRatio.Root>
     </div>
