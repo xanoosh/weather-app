@@ -7,6 +7,7 @@ import { OpacityIcon } from '@radix-ui/react-icons';
 
 export default function HourForecastElement({
   hourForecast,
+  isNight,
 }: hourForecastElementInterface) {
   const afterElementStyle =
     "relative after:absolute after:h-3/5 after:top-1/5 after:-right-2 after:content-[''] after:w-0.5 after:bg-white/30 last:after:w-0";
@@ -33,7 +34,12 @@ export default function HourForecastElement({
         <div className="flex justify-center">
           <HourForecastIcon
             weatherName={weatherName}
-            weatherCode={hourForecast.weatherCode}
+            weatherCode={
+              isNight &&
+              [1000, 1100, 1101, 1102].includes(hourForecast.weatherCode)
+                ? `${hourForecast.weatherCode}_night`
+                : hourForecast.weatherCode
+            }
           />
         </div>
         <div>

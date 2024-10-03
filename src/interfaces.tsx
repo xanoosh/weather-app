@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 interface hourForecastInterface {
-  hour?: number;
+  hour: number;
   cloudBase?: number | null;
   cloudCeiling?: number | null;
   cloudCover?: number | null;
@@ -55,7 +55,7 @@ export interface chartTabsInterface {
 
 export interface hourForecastIconInterface {
   weatherName?: string;
-  weatherCode: number;
+  weatherCode: number | string;
 }
 export interface horizontalScrollInterface {
   dayForecast: valuesInterface;
@@ -64,6 +64,7 @@ export interface horizontalScrollInterface {
 
 export interface hourForecastElementInterface {
   hourForecast: hourForecastInterface;
+  isNight: boolean;
 }
 
 export interface hourForecastDialogInterface {

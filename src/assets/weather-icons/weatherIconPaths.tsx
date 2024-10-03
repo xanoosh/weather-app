@@ -1,8 +1,12 @@
 import path1000 from './1000.png';
+import path1000_night from './1000_night.png';
 import path1001 from './1001.png';
 import path1100 from './1100.png';
+import path1100_night from './1100_night.png';
 import path1101 from './1101.png';
+import path1101_night from './1101_night.png';
 import path1102 from './1102.png';
+import path1102_night from './1102_night.png';
 import path2000 from './2000.png';
 import path2100 from './2100.png';
 import path4000 from './4000.png';
@@ -22,7 +26,7 @@ import path7101 from './7101.png';
 import path7102 from './7102.png';
 import path8000 from './8000.png';
 
-export const weatherIconPaths: { [key: number]: string } = {
+export const weatherIconPaths: { [key: number | string]: string } = {
   1000: path1000,
   1001: path1001,
   1100: path1100,
@@ -46,4 +50,8 @@ export const weatherIconPaths: { [key: number]: string } = {
   7101: path7101,
   7102: path7102,
   8000: path8000,
+  ['1000_night']: path1000_night,
+  ['1100_night']: path1100_night,
+  ['1101_night']: path1101_night,
+  ['1102_night']: path1102_night,
 };
