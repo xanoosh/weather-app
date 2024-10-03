@@ -54,28 +54,32 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
         selectedIndex={context?.chartTabIndex}
         onChange={(e) => context?.setChartTabIndex(e)}
       >
-        <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between">
+        <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between relative">
+          <motion.div
+            className="bg-white w-1/4 h-[.15rem] absolute -bottom-[.15rem]"
+            animate={{ left: `${(context?.chartTabIndex || 0) * 25}%` }}
+          ></motion.div>
           <Tab
             key={'temperature'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Temperature</p>
           </Tab>
           <Tab
             key={'wind'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Wind</p>
           </Tab>
           <Tab
             key={'humidity'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Humidity</p>
           </Tab>
           <Tab
             key={'pressure'}
-            className="border-b-[.15rem] border-transparent text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Pressure</p>
           </Tab>

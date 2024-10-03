@@ -6,6 +6,7 @@ import { getDailyForecastArray } from '../utils/getDailyForecastArray';
 import { getWeekDayName } from '../utils/getWeekDayName';
 import moment from 'moment';
 import { createContext, useState } from 'react';
+import { motion } from 'framer-motion';
 
 type ChartTabContextType = {
   chartTabIndex: number;
@@ -18,16 +19,21 @@ export default function ForecastTabs({
   hourlyForecast,
 }: forecastTabsInterface) {
   const [chartTabIndex, setChartTabIndex] = useState(0);
+  const [forecastTabPosition, setForecastTabPosition] = useState(0);
   const dailyForecastArray = getDailyForecastArray(hourlyForecast);
   return (
     <ChartTabContext.Provider value={{ chartTabIndex, setChartTabIndex }}>
       <div className="lg:w-3/5 md:w-3/4 w-full">
-        <TabGroup>
-          <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between">
+        <TabGroup onChange={(e) => setForecastTabPosition(e)}>
+          <TabList className="flex border-b-[0.2rem] border-white/40 md:justify-center justify-between relative">
+            <motion.div
+              className="bg-white w-1/5 h-[.2rem] absolute -bottom-[.2rem]"
+              animate={{ left: `${forecastTabPosition * 20}%` }}
+            ></motion.div>
             {dailyForecastArray.map((dayForecast, i) => (
               <Tab
                 key={i}
-                className="border-b-[.15rem] border-transparent text-white/60 basis-1/5 md:px-3 md:py-2 py-1 px-2 -mb-[.15rem] md:text-lg text-sm focus:outline-none font-semibold data-[selected]:border-white data-[selected]:text-white data-[hover]:border-white data-[hover]:text-white"
+                className="text-white/60 basis-1/5 md:px-3 md:py-2 py-1 px-2 md:text-lg text-sm focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
               >
                 <p>{getWeekDayName(moment(dayForecast.date).weekday())}</p>
                 <p className="md:text-sm text-xs">
