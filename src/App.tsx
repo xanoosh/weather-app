@@ -1,4 +1,5 @@
 import { useWeatherData } from './hooks/useWeatherData';
+import { useDayNight } from './hooks/useDayNight';
 import ForecastTabs from './components/ForecastTabs';
 import Loader from './components/Loader';
 import Footer from './components/Footer';
@@ -14,6 +15,17 @@ function App() {
     latitude,
     longitude,
   });
+
+  const { data: dayNightData, isLoading: dayNightLoading } = useDayNight({
+    latitude,
+    longitude,
+    dateStart: '2024-10-03',
+    dateEnd: '2024-10-04',
+  });
+
+  console.log('dayNightData:', dayNightData);
+  console.log('dayNightLoading:', dayNightLoading);
+
   return (
     <main className="flex flex-col bg-sky-600 min-h-[100vh]">
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
