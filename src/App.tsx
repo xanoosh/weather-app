@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import { useLocationStore } from './hooks/store/useLocationStore';
 import AutocompleteDialog from './components/Dialogs/AutocompleteDialog/AutocompleteDialog';
 import { MapPinIcon } from '@heroicons/react/24/solid';
+import moment from 'moment';
 function App() {
   const {
     text,
@@ -19,18 +20,22 @@ function App() {
   const { data: dayNightData, isLoading: dayNightLoading } = useDayNight({
     latitude,
     longitude,
-    dateStart: '2024-10-03',
-    dateEnd: '2024-10-04',
+    dateStart: moment().format('YYYY-MM-DD'),
+    dateEnd: moment().add(4, 'day').format('YYYY-MM-DD'),
   });
-
-  console.log('dayNightData:', dayNightData);
-  console.log('dayNightLoading:', dayNightLoading);
 
   return (
     <main className="flex flex-col bg-sky-600 min-h-[100vh]">
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
-        {data ? <ForecastTabs hourlyForecast={data.timelines.hourly} /> : null}
-        {isLoading ? <Loader size="lg" color="#fff" /> : null}
+        {data && dayNightData ? (
+          <ForecastTabs
+            hourlyForecast={data.timelines.hourly}
+            dayNightData={dayNightData}
+          />
+        ) : null}
+        {isLoading || dayNightLoading ? (
+          <Loader size="lg" color="#fff" />
+        ) : null}
       </section>
       <section className="flex flex-col gap-2 px-6 items-start justify-center w-80 mx-auto">
         <div className="flex text-white gap-1 items-start">

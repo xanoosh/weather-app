@@ -3,7 +3,10 @@ import HourForecastElement from './HourForecastElement';
 
 export default function DayForecastHorizontalScroll({
   dayForecast,
+  dayNightDataDaily,
 }: horizontalScrollInterface) {
+  console.log('dayForecast', dayForecast);
+  console.log('dayNightDataDaily', dayNightDataDaily);
   return (
     <div className="flex scrollbar scrollbar-thumb-sky-700 scrollbar-track-transparent overflow-x-scroll gap-3 py-4 mb-6 focus:outline-none">
       {dayForecast.values.map((hourForecast, i) => (
