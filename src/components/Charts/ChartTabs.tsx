@@ -57,6 +57,7 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
         <TabList className="flex border-b-[.15rem] border-white/40 md:justify-center justify-between relative">
           <motion.div
             className="bg-white w-1/4 h-[.15rem] absolute -bottom-[.15rem]"
+            initial={{ left: `${(context?.chartTabIndex || 0) * 25}%` }}
             animate={{ left: `${(context?.chartTabIndex || 0) * 25}%` }}
           ></motion.div>
           <Tab
