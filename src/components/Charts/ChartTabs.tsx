@@ -62,25 +62,25 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
           ></motion.div>
           <Tab
             key={'temperature'}
-            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 md:text-sm sm:text-xs text-[0.65rem] focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Temperature</p>
           </Tab>
           <Tab
             key={'wind'}
-            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 md:text-sm sm:text-xs text-[0.65rem] focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Wind</p>
           </Tab>
           <Tab
             key={'humidity'}
-            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 md:text-sm sm:text-xs text-[0.65rem] focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Humidity</p>
           </Tab>
           <Tab
             key={'pressure'}
-            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 sm:text-sm text-xs focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
+            className="text-white/60 basis-1/4 md:px-3 md:py-2 py-1 px-2 md:text-sm sm:text-xs text-[0.65rem] focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
           >
             <p>Pressure</p>
           </Tab>
