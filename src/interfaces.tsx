@@ -70,6 +70,7 @@ export interface hourForecastElementInterface {
 export interface hourForecastDialogInterface {
   hourForecast: hourForecastInterface;
   weatherName: string;
+  weatherCode: string | number;
   children: ReactNode;
 }
 

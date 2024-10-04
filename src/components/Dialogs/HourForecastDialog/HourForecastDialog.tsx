@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 export default function HourForecastDialog({
   hourForecast,
   weatherName,
+  weatherCode,
   children,
 }: hourForecastDialogInterface) {
   const { windDirection, windSpeed, windGust, precipitationProbability } =
@@ -39,7 +40,7 @@ export default function HourForecastDialog({
           >
             <Dialog.Title className="flex justify-between pl-2">
               <div className="flex justify-start gap-4 text-sm mb-2 pt-3">
-                <HourForecastIcon weatherCode={hourForecast.weatherCode} />
+                <HourForecastIcon weatherCode={weatherCode} />
                 <div>
                   <p>{weatherName}</p>
                   <p>{hourForecast.hour}:00</p>
