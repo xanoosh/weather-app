@@ -1,5 +1,15 @@
 import { ReactNode } from 'react';
 
+// app context
+
+export interface appContextInterface {
+  chartTabIndex: number;
+  setChartTabIndex: React.Dispatch<React.SetStateAction<number>>;
+  dayNightData: Array<{ date: string; dusk: string; dawn: string }>;
+}
+
+//reusable:
+
 interface hourForecastInterface {
   hour: number;
   cloudBase?: number | null;
@@ -35,6 +45,8 @@ interface hourForecastInterface {
   windGust?: number | null;
   windSpeed?: number | null;
 }
+
+// components:
 
 export interface timelinesArrayInterface {
   time: string;

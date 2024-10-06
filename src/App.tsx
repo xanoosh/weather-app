@@ -8,14 +8,9 @@ import AutocompleteDialog from './components/Dialogs/AutocompleteDialog/Autocomp
 import { MapPinIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
 import { useState, createContext } from 'react';
+import { appContextInterface } from './interfaces';
 
-type AppContextType = {
-  chartTabIndex: number;
-  setChartTabIndex: React.Dispatch<React.SetStateAction<number>>;
-  dayNightData: Array<{ date: string; dusk: string; dawn: string }>;
-};
-
-export const AppContext = createContext<null | AppContextType>(null);
+export const AppContext = createContext<null | appContextInterface>(null);
 
 function App() {
   const [chartTabIndex, setChartTabIndex] = useState(0);
