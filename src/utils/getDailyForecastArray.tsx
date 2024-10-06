@@ -10,6 +10,7 @@ export const getDailyForecastArray = (
 
   timelinesArray.forEach((el) => {
     if (dailyForcastArray?.[4]?.values.length === 24) return;
+    const index = dailyForcastArray.length;
     const hour = Number(el.time.split('T')[1].split(':')[0]);
     if (dailyForcastArray[dailyForcastArray.length - 1]) {
       if (
@@ -23,6 +24,7 @@ export const getDailyForecastArray = (
       } else {
         dailyForcastArray.push({
           date: el.time,
+          index,
           values: [{ ...el.values, hour }],
         });
       }
@@ -30,6 +32,7 @@ export const getDailyForecastArray = (
       if (Number(hour) >= currentHour) {
         dailyForcastArray.push({
           date: el.time,
+          index,
           values: [
             {
               ...el.values,

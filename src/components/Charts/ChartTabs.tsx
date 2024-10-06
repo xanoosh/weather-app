@@ -4,12 +4,12 @@ import { getMinMaxValue } from '../../utils/getMinMaxValue';
 import LineChart from './ChartVariants/LineChart';
 import BarChart from './ChartVariants/BarChart';
 import StreamChart from './ChartVariants/StreamChart';
-import { ChartTabContext } from '../ForecastTabs';
+import { AppContext } from '../../App';
 import { useContext } from 'react';
 import { motion } from 'framer-motion';
 
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
-  const context = useContext(ChartTabContext);
+  const context = useContext(AppContext);
 
   const temperaturesArray = dayForecast.values.map(
     ({ temperature }) => temperature

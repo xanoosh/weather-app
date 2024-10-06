@@ -7,7 +7,19 @@ import { useLocationStore } from './hooks/store/useLocationStore';
 import AutocompleteDialog from './components/Dialogs/AutocompleteDialog/AutocompleteDialog';
 import { MapPinIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
+import { useState, createContext } from 'react';
+
+type AppContextType = {
+  chartTabIndex: number;
+  setChartTabIndex: React.Dispatch<React.SetStateAction<number>>;
+  dayNightData: Array<{ date: string; dusk: string; dawn: string }>;
+};
+
+export const AppContext = createContext<null | AppContextType>(null);
+
 function App() {
+  const [chartTabIndex, setChartTabIndex] = useState(0);
+
   const {
     text,
     parameters: { latitude, longitude },
@@ -28,10 +40,11 @@ function App() {
     <main className="flex flex-col bg-sky-600 min-h-[100vh]">
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data && dayNightData ? (
-          <ForecastTabs
-            hourlyForecast={data.timelines.hourly}
-            dayNightData={dayNightData}
-          />
+          <AppContext.Provider
+            value={{ chartTabIndex, setChartTabIndex, dayNightData }}
+          >
+            <ForecastTabs hourlyForecast={data.timelines.hourly} />
+          </AppContext.Provider>
         ) : null}
         {isLoading || dayNightLoading ? (
           <Loader size="lg" color="#fff" />

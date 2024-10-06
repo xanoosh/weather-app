@@ -42,6 +42,7 @@ export interface timelinesArrayInterface {
 }
 export interface valuesInterface {
   date: string;
+  index: number;
   values: Array<hourForecastInterface>;
 }
 
@@ -59,7 +60,6 @@ export interface hourForecastIconInterface {
 }
 export interface horizontalScrollInterface {
   dayForecast: valuesInterface;
-  dayNightDataDaily: { date: string; dusk: string; dawn: string };
 }
 
 export interface hourForecastElementInterface {
@@ -81,7 +81,6 @@ export interface DialogTableInterface {
 
 export interface forecastTabsInterface {
   hourlyForecast: Array<timelinesArrayInterface>;
-  dayNightData: Array<{ date: string; dusk: string; dawn: string }>;
 }
 
 export interface lineChartInterface {
