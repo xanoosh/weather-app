@@ -9,7 +9,7 @@ import { MapPinIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
 import { useState, createContext } from 'react';
 import { appContextInterface } from './interfaces';
-import LocationDrawer from './components/Drawers/LocationDrawer';
+// import LocationDrawer from './components/Drawers/LocationDrawer';
 
 export const AppContext = createContext<null | appContextInterface>(null);
 
