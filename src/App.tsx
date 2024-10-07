@@ -9,6 +9,7 @@ import { MapPinIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
 import { useState, createContext } from 'react';
 import { appContextInterface } from './interfaces';
+import LocationDrawer from './components/Drawers/LocationDrawer';
 
 export const AppContext = createContext<null | appContextInterface>(null);
 
@@ -33,6 +34,9 @@ function App() {
 
   return (
     <main className="flex flex-col bg-sky-600 min-h-[100vh]">
+      {/* drawer start*/}
+      {/* <LocationDrawer /> */}
+      {/* drawer end*/}
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data && dayNightData ? (
           <AppContext.Provider
@@ -45,14 +49,13 @@ function App() {
           <Loader size="lg" color="#fff" />
         ) : null}
       </section>
-      <section className="flex flex-col gap-2 px-6 items-start justify-center w-80 mx-auto">
-        <div className="flex text-white gap-1 items-start">
+
+      <section className="text-white px-6 lg:w-3/5 md:w-3/4 w-full mx-auto flex gap-2 flex-wrap">
+        <div className="flex gap-1 items-center">
           <MapPinIcon width={16} />
           <p className="text-xs ">{text}</p>
         </div>
-        <div className="w-32">
-          <AutocompleteDialog />
-        </div>
+        <AutocompleteDialog />
       </section>
       <Footer />
     </main>
