@@ -6,7 +6,7 @@ export default function Badge({ icon, tooltip }: badgeInterface) {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <div className="bg-white/30 rounded-full w-6 h-6 flex justify-center items-center">
+          <div className="bg-white/10 rounded-full w-5 h-5 flex justify-center items-center">
             {icon}
           </div>
         </Tooltip.Trigger>

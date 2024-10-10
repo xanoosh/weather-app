@@ -30,10 +30,18 @@ async function getDayNightData(
     }
     const dayNightData = await response.json();
     return dayNightData.results.map(
-      ({ date, dawn, dusk }: { date: string; dawn: string; dusk: string }) => ({
+      ({
         date,
-        dawn,
-        dusk,
+        sunrise,
+        sunset,
+      }: {
+        date: string;
+        sunrise: string;
+        sunset: string;
+      }) => ({
+        date,
+        sunrise,
+        sunset,
       })
     );
   } catch (error) {

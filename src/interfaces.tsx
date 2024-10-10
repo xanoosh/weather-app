@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 export interface appContextInterface {
   chartTabIndex: number;
   setChartTabIndex: React.Dispatch<React.SetStateAction<number>>;
-  dayNightData: Array<{ date: string; dusk: string; dawn: string }>;
+  dayNightData: Array<{ date: string; sunset: string; sunrise: string }>;
 }
 
 //reusable:
@@ -76,7 +76,13 @@ export interface horizontalScrollInterface {
 
 export interface hourForecastElementInterface {
   hourForecast: hourForecastInterface;
-  isNight: boolean;
+  dayNightDataElement: {
+    isNight: boolean;
+    sunset: number;
+    sunrise: number;
+    sunriseString: string;
+    sunsetString: string;
+  };
 }
 
 export interface hourForecastDialogInterface {
