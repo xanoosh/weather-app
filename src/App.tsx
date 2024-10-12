@@ -8,7 +8,6 @@ import AutocompleteDialog from './components/Dialogs/AutocompleteDialog/Autocomp
 import moment from 'moment';
 import { useState, createContext } from 'react';
 import { appContextInterface } from './interfaces';
-// import LocationDrawer from './components/Drawers/LocationDrawer';
 
 export const AppContext = createContext<null | appContextInterface>(null);
 
@@ -32,9 +31,6 @@ function App() {
 
   return (
     <main className="flex flex-col bg-sky-600 min-h-[100vh]">
-      {/* drawer start*/}
-      {/* <LocationDrawer /> */}
-      {/* drawer end*/}
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data && dayNightData ? (
           <AppContext.Provider
