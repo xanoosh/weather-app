@@ -59,7 +59,6 @@ export default function Autocomplete({
             setSelectedLocationText(e.target.value);
           }}
           displayValue={(el: locationInterface) => el?.text || ''}
-          placeholder="type new location here"
         />
         <ComboboxOptions className="shadow-lg mt-1 bg-white rounded scrollbar scrollbar-thumb-sky-700 scrollbar-track-transparent overflow-y-scroll absolute top-[100%] left-0 right-0">
           {data?.length === 0 &&

@@ -5,7 +5,6 @@ import Loader from './components/Loader';
 import Footer from './components/Footer';
 import { useLocationStore } from './hooks/store/useLocationStore';
 import AutocompleteDialog from './components/Dialogs/AutocompleteDialog/AutocompleteDialog';
-import { MapPinIcon } from '@heroicons/react/24/solid';
 import moment from 'moment';
 import { useState, createContext } from 'react';
 import { appContextInterface } from './interfaces';
@@ -17,7 +16,6 @@ function App() {
   const [chartTabIndex, setChartTabIndex] = useState(0);
 
   const {
-    text,
     parameters: { latitude, longitude },
   } = useLocationStore((state) => state.location);
   const { data, isLoading } = useWeatherData({
@@ -50,11 +48,7 @@ function App() {
         ) : null}
       </section>
 
-      <section className="text-white px-6 lg:w-3/5 md:w-3/4 w-full mx-auto flex gap-2 flex-wrap">
-        <div className="flex gap-1 items-center">
-          <MapPinIcon width={16} />
-          <p className="text-xs ">{text}</p>
-        </div>
+      <section className="px-6 lg:w-3/5 md:w-3/4 w-full mx-auto flex justify-center">
         <AutocompleteDialog />
       </section>
       <Footer />

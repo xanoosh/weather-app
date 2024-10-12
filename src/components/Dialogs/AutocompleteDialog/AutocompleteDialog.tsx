@@ -3,9 +3,11 @@ import { Cross2Icon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Autocomplete from './Autocomplete';
 import { useState } from 'react';
+import { useLocationStore } from '../../../hooks/store/useLocationStore';
 
 export default function AutocompleteDialog() {
   const [isOpen, setIsOpen] = useState(false);
+  const { text: location } = useLocationStore((state) => state.location);
   const closeDialog = () => setIsOpen(false);
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
@@ -39,14 +41,16 @@ export default function AutocompleteDialog() {
                 </button>
               </Dialog.Close>
             </Dialog.Title>
-            <Dialog.Description className="px-2">
-              <div className="flex flex-col gap-4 text-sm mb-2">
-                <Autocomplete
-                  closeDialog={closeDialog}
-                  label="Type in new location and click on it to change the forecast
-                  location."
-                />
+            <Dialog.Description className="px-3 flex flex-col gap-4 text-sm py-2">
+              <div className="flex flex-col gap-1">
+                <p className="text-xs text-slate-500">Current location</p>
+                <p className="text-slate-600">{location}</p>
               </div>
+              <Autocomplete
+                closeDialog={closeDialog}
+                label="Type in new location below to change the forecast
+                  location."
+              />
             </Dialog.Description>
           </motion.div>
         </Dialog.Content>
