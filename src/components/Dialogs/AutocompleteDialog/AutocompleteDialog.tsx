@@ -10,7 +10,7 @@ export default function AutocompleteDialog() {
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
-        <button className="text-white px-2 p-1 inline-flex items-center justify-center rounded bg-white/20 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
+        <button className="text-white px-4 p-1 inline-flex items-center justify-center rounded-xl bg-white/20 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
           Change location
         </button>
       </Dialog.Trigger>
@@ -41,11 +41,11 @@ export default function AutocompleteDialog() {
             </Dialog.Title>
             <Dialog.Description className="px-2">
               <div className="flex flex-col gap-4 text-sm mb-2">
-                <p>
-                  Type in new location and click on it to change the forecast
-                  location.
-                </p>
-                <Autocomplete closeDialog={closeDialog} />
+                <Autocomplete
+                  closeDialog={closeDialog}
+                  label="Type in new location and click on it to change the forecast
+                  location."
+                />
               </div>
             </Dialog.Description>
           </motion.div>

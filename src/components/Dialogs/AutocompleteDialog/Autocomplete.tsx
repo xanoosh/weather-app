@@ -1,17 +1,22 @@
 import { useState } from 'react';
 import { useDebounce } from 'react-use';
 import {
+  Field,
+  Label,
   Combobox,
   ComboboxInput,
   ComboboxOptions,
   ComboboxOption,
 } from '@headlessui/react';
 import { useAutocompleteLocation } from '../../../hooks/useAutocompleteLocation';
-import { autocompleteInterface } from '../../../interfaces';
+import { autocompleteInterface, locationInterface } from '../../../interfaces';
 import Loader from '../../Loader';
 import { useLocationStore } from '../../../hooks/store/useLocationStore';
 
-export default function Autocomplete({ closeDialog }: autocompleteInterface) {
+export default function Autocomplete({
+  closeDialog,
+  label,
+}: autocompleteInterface) {
   const { text } = useLocationStore((state) => state.location);
   const updateLocation = useLocationStore((state) => state.updateLocation);
   const [selectedLocationText, setSelectedLocationText] = useState(
@@ -33,14 +38,15 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
   );
 
   return (
-    <div className="relative w-full">
+    <Field className="relative w-full flex flex-col gap-1">
+      <Label className="text-slate-500 text-xs">{label}</Label>
       <Combobox
         value={selectedLocationText}
         onChange={(e) => {
           if (e) {
             setSelectedLocationText(e);
             const newLocation = data.find(
-              (el: autocompleteInterface['location']) => el?.text === e
+              (el: locationInterface) => el?.text === e
             );
             updateLocation(newLocation);
             if (closeDialog) closeDialog();
@@ -52,9 +58,7 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
           onChange={(e) => {
             setSelectedLocationText(e.target.value);
           }}
-          displayValue={(el: autocompleteInterface['location']) =>
-            el?.text || ''
-          }
+          displayValue={(el: locationInterface) => el?.text || ''}
           placeholder="type new location here"
         />
         <ComboboxOptions className="shadow-lg mt-1 bg-white rounded scrollbar scrollbar-thumb-sky-700 scrollbar-track-transparent overflow-y-scroll absolute top-[100%] left-0 right-0">
@@ -80,7 +84,7 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
             </ComboboxOption>
           ) : null}
           {data && selectedLocationText === selectedLocationTextDebounced
-            ? data.map((location: autocompleteInterface['location']) => {
+            ? data.map((location: locationInterface) => {
                 if (location) {
                   return (
                     <ComboboxOption
@@ -96,6 +100,6 @@ export default function Autocomplete({ closeDialog }: autocompleteInterface) {
             : null}
         </ComboboxOptions>
       </Combobox>
-    </div>
+    </Field>
   );
 }

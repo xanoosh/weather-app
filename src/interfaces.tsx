@@ -138,12 +138,14 @@ export interface compassInterface {
   windDirection?: number | null;
 }
 
+export interface locationInterface {
+  text: string;
+  parameters?: { latitude: number; longitude: number };
+}
+
 export interface autocompleteInterface {
   closeDialog?: () => void;
-  location?: {
-    text: string;
-    parameters?: { latitude: number; longitude: number };
-  };
+  label: string;
 }
 
 export interface loaderInterface {
