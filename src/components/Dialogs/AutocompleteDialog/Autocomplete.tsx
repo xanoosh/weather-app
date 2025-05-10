@@ -54,7 +54,7 @@ export default function Autocomplete({
         }}
       >
         <ComboboxInput
-          className="bg-white border border-slate-400 rounded py-2 px-4 w-full text-slate-700 focus:ring-1 focus:ring-indigo-900 focus:border-indigo-900 focus:outline-none"
+          className="bg-white border border-slate-400 rounded py-2 px-4 w-full text-slate-700 focus:ring-1 focus:ring-blue-950 focus:border-blue-950 focus:outline-none"
           onChange={(e) => {
             setSelectedLocationText(e.target.value);
           }}
@@ -89,7 +89,7 @@ export default function Autocomplete({
                     <ComboboxOption
                       key={location.text}
                       value={location.text}
-                      className="text-slate-700 py-2 px-4 hover:text-white hover:bg-indigo-900 cursor-pointer"
+                      className="text-slate-700 py-2 px-4 hover:text-white hover:bg-blue-950 cursor-pointer"
                     >
                       {location.text}
                     </ComboboxOption>

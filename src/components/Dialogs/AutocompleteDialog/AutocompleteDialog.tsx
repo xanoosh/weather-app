@@ -33,7 +33,7 @@ export default function AutocompleteDialog() {
               </h2>
               <Dialog.Close asChild>
                 <button
-                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-indigo-900 focus:outline-none"
+                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-blue-950 focus:outline-none"
                   aria-label="Close"
                   onClick={() => setIsOpen(false)}
                 >

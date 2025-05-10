@@ -69,7 +69,7 @@ export default function StreamChart({
           //   // const val = `${String(point.data.y)}${unit}`;
           //   // const hour = `${String(point.data.x)}:00`;
           //   return (
-          //     <div className="px-3 py-2 rounded-sm bg-indigo-900 shadow-md flex flex-col gap-2">
+          //     <div className="px-3 py-2 rounded-sm bg-blue-950 shadow-md flex flex-col gap-2">
           //       <p className="text-sm text-white">
           //         {/* {val} at {hour} */}
           //         bububu

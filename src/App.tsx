@@ -30,7 +30,7 @@ function App() {
   });
 
   return (
-    <main className="flex flex-col bg-indigo-900 min-h-[100vh]">
+    <main className="flex flex-col bg-blue-950 min-h-[100vh]">
       <section className="flex gap-4 flex-col px-6 py-4 items-center">
         {data && dayNightData ? (
           <AppContext.Provider
