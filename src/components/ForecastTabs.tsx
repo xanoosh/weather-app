@@ -18,9 +18,9 @@ export default function ForecastTabs({
       onChange={(e) => setForecastTabPosition(e)}
       className="lg:w-3/5 md:w-3/4 w-full"
     >
-      <TabList className="flex border-b-[0.2rem] border-white/40 md:justify-center justify-between relative">
+      <TabList className="flex border-b-[0.2rem] border-transparent md:justify-center justify-between relative">
         <motion.div
-          className="bg-white w-1/5 h-[.2rem] absolute -bottom-[.2rem]"
+          className="bg-white w-1/5 h-[.2rem] absolute -bottom-[.2rem] rounded-xl"
           animate={{ left: `${forecastTabPosition * 20}%` }}
         ></motion.div>
         {dailyForecastArray.map((dayForecast, i) => (
