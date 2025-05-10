@@ -11,7 +11,7 @@ export default function DayForecastHorizontalScroll({
   if (!context) return null;
   const dayNightArray = getDayNightArray(context.dayNightData, dayForecast);
   return (
-    <div className="flex scrollbar scrollbar-thumb-sky-700 scrollbar-track-transparent overflow-x-scroll gap-3 pb-4 mb-6 focus:outline-none">
+    <div className="flex scrollbar scrollbar-thumb-indigo-400 scrollbar-track-transparent overflow-x-scroll gap-3 pb-4 mb-6 focus:outline-none snap-x">
       {dayForecast.values.map((hourForecast, i) => {
         return (
           <HourForecastElement
