@@ -33,7 +33,8 @@ export default function StreamChart({
         <ResponsiveStream
           data={chartData}
           keys={['Wind speed (m/s)', 'Wind gust (m/s)']}
-          enableGridX={true}
+          enableGridX={breakpoint === 'sm' ? false : true}
+          enableGridY={breakpoint === 'sm' ? false : true}
           fillOpacity={0.6}
           animate={true}
           motionConfig="stiff"

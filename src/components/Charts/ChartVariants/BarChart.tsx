@@ -43,7 +43,7 @@ export default function BarChart({
           minValue={min}
           theme={chartCustomTheme}
           enableLabel={false}
-          enableTotals
+          enableTotals={breakpoint === 'sm' ? false : true}
           tooltip={({ data: { exactHumidity, hour } }) => {
             return (
               <div className="px-3 py-2 rounded-sm bg-white shadow-md flex flex-col gap-2">
@@ -80,6 +80,7 @@ export default function BarChart({
             truncateTickAt: 0,
           }}
           colors={['#38bdf888']}
+          enableGridY={breakpoint === 'sm' ? false : true}
         />
       </AspectRatio.Root>
     </div>

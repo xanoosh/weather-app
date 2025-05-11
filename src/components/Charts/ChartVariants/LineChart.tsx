@@ -91,6 +91,7 @@ export default function LineChart({
           pointLabelYOffset={-12}
           enableTouchCrosshair={true}
           useMesh={true}
+          enableGridX={breakpoint === 'sm' ? false : true}
         />
       </AspectRatio.Root>
     </div>
