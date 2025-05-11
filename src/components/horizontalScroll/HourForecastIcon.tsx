@@ -6,7 +6,10 @@ export default function HourForecastIcon({
 }: hourForecastIconInterface) {
   return (
     <div className="flex flex-col gap-1 justify-center items-center">
-      <img className="w-12" src={weatherIconPaths[weatherCode]} />
+      <img
+        className="custom-md:w-12 w-10"
+        src={weatherIconPaths[weatherCode]}
+      />
       {weatherName ? (
         <p className="text-center text-xs text-white">{weatherName}</p>
       ) : null}

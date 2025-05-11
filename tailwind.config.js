@@ -4,7 +4,6 @@ export default {
   theme: {
     extend: {
       screens: {
-        'custom-xs': '430px', // Extra small devices
         'custom-sm': '500px', // Small devices
         'custom-md': '850px', // Medium devices
         'custom-lg': '1000px', // Large devices

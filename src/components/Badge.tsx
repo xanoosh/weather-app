@@ -1,13 +1,14 @@
 import { badgeInterface } from '../interfaces';
 import * as Tooltip from '@radix-ui/react-tooltip';
 
-export default function Badge({ icon, tooltip }: badgeInterface) {
+export default function Badge({ icon, tooltip, text }: badgeInterface) {
   return (
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <div className="bg-white/10 rounded-full w-5 h-5 flex justify-center items-center">
+          <div className="h-5 flex justify-center gap-1rem items-center text-sky-200/70">
             {icon}
+            <span className="text-[.6rem]">{text}</span>
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>

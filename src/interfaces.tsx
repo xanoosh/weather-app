@@ -156,6 +156,7 @@ export interface loaderInterface {
 export interface badgeInterface {
   tooltip: string;
   icon: ReactNode;
+  text?: string | null;
 }
 
 export interface humidityPillInterface {
