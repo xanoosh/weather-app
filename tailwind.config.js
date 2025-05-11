@@ -2,7 +2,15 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'custom-xs': '430px', // Extra small devices
+        'custom-sm': '500px', // Small devices
+        'custom-md': '850px', // Medium devices
+        'custom-lg': '1000px', // Large devices
+        'custom-xl': '1290px', // Extra Large devices
+      },
+    },
   },
   plugins: [
     // ...
