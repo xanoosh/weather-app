@@ -11,7 +11,7 @@ export default function HourForecastIcon({
         src={weatherIconPaths[weatherCode]}
       />
       {weatherName ? (
-        <p className="text-center text-xs text-white">{weatherName}</p>
+        <p className="text-center text-[0.7rem] text-white">{weatherName}</p>
       ) : null}
     </div>
   );

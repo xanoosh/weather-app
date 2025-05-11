@@ -31,7 +31,7 @@ function App() {
 
   return (
     <main className="flex flex-col bg-blue-950 min-h-[100vh]">
-      <section className="flex gap-4 flex-col px-6 py-4 items-center">
+      <section className="flex gap-4 flex-col sm:px-6 px-4 py-4 items-center">
         {data && dayNightData ? (
           <AppContext.Provider
             value={{ chartTabIndex, setChartTabIndex, dayNightData }}

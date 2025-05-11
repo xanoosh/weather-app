@@ -6,9 +6,9 @@ export default function Badge({ icon, tooltip, text }: badgeInterface) {
     <Tooltip.Provider>
       <Tooltip.Root>
         <Tooltip.Trigger asChild>
-          <div className="h-5 flex justify-center gap-1rem items-center text-sky-200/70">
+          <div className="h-5 flex justify-center gap-0.5rem items-center text-white/70">
             {icon}
-            <span className="text-[.6rem]">{text}</span>
+            <span className="text-[0.5rem]">{text}</span>
           </div>
         </Tooltip.Trigger>
         <Tooltip.Portal>
