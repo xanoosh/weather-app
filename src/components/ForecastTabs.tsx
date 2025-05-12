@@ -20,16 +20,24 @@ export default function ForecastTabs({
     >
       <TabList className="flex border-b-[0.2rem] border-transparent md:justify-center justify-between relative">
         <motion.div
-          className="bg-white w-1/5 h-[.2rem] absolute -bottom-[.2rem] rounded-xl"
+          layoutId="bubble-days"
+          // bg-pink-500
+          // bg-amber-500
+          className="bg-purple-900 w-1/5  absolute top-0.5 bottom-0.5 rounded-[3rem] z-10"
           animate={{ left: `${forecastTabPosition * 20}%` }}
+          transition={{
+            type: 'spring',
+            bounce: 0.2,
+            duration: 0.6,
+          }}
         ></motion.div>
         {dailyForecastArray.map((dayForecast, i) => (
           <Tab
             key={i}
-            className="text-white/60 basis-1/5 md:px-3 md:py-2 py-1 px-2 md:text-lg text-sm focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white"
+            className="text-white/60 basis-1/5 md:px-3 md:py-2 py-1 px-2 md:text-lg text-sm focus:outline-none font-semibold data-[selected]:text-white data-[hover]:text-white relative z-20 display flex items-center md:flex-row md:gap-2 flex-col justify-center"
           >
             <p>{getWeekDayName(moment(dayForecast.date).weekday())}</p>
-            <p className="md:text-sm text-xs">
+            <p className="md:text-lg text-xs">
               {moment(dayForecast.date).format('DD.MM')}
             </p>
           </Tab>

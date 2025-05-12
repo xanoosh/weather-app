@@ -12,7 +12,6 @@ export default function DayForcastTab({
 
   return (
     <div className="flex flex-col gap-6">
-      {/* add some chart data for wind intensity, pressure etc. */}
       <ChartTabs dayForecast={dayForecast} />
     </div>
   );
