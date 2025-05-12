@@ -84,7 +84,6 @@ export default function LineChart({
           animate={true}
           motionConfig="stiff"
           pointSize={4}
-          pointColor={'#0ea5e9'}
           pointBorderWidth={1}
           colors={['#fff']}
           pointBorderColor={'#fff'}

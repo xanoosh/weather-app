@@ -79,7 +79,7 @@ export default function BarChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          colors={['#38bdf888']}
+          colors={['#3758C777']}
           enableGridY={breakpoint === 'sm' ? false : true}
         />
       </AspectRatio.Root>

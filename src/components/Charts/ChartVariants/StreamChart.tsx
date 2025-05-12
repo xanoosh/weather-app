@@ -78,7 +78,7 @@ export default function StreamChart({
           //     </div>
           //   );
           // }}
-          colors={['#38bdf8', '#fb7185']}
+          colors={['#8C9FE0', '#3758C7']}
         />
       </AspectRatio.Root>
     </div>
