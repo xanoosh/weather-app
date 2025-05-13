@@ -115,7 +115,8 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
                 chartData={temperaturesChartData}
                 yAxisLegend="Temperature"
                 unit="°C"
-                colors={['#3758C7']}
+                colors={['#3758C7', '#FD8D51']}
+                gradient={true}
               />
             </motion.div>
           </TabPanel>

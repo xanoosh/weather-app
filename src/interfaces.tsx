@@ -134,6 +134,7 @@ export interface streamChartInterface {
   yAxisLegend: string;
   unit: string;
   colors?: Array<string> | null;
+  gradient?: boolean;
 }
 
 export interface compassInterface {

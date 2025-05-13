@@ -17,6 +17,7 @@ export default function StreamChart({
   yAxisLegend,
   unit,
   colors,
+  gradient,
 }: streamChartInterface) {
   const breakpoint = useBreakpoint();
 
@@ -90,6 +91,23 @@ export default function StreamChart({
           //   );
           // }}
           colors={colors ? colors : ['#8C9FE0', '#3758C7']}
+          defs={
+            gradient
+              ? [
+                  {
+                    id: 'gradient',
+                    type: 'linearGradient',
+                    colors: [
+                      { offset: 0, color: colors?.[1] || 'inherit' },
+                      { offset: 80, color: colors?.[0] || 'inherit' },
+                    ],
+                  },
+                ]
+              : undefined
+          }
+          fill={
+            gradient ? [{ match: { id: keys[0] }, id: 'gradient' }] : undefined
+          }
         />
       </AspectRatio.Root>
     </div>
