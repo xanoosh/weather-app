@@ -126,12 +126,14 @@ export interface barChartInterface {
 
 export interface streamChartInterface {
   chartData: Array<{
-    ['Wind speed (m/s)']: number;
-    ['Wind gust (m/s)']: number;
+    ['Wind speed (m/s)']?: number;
+    ['Wind gust (m/s)']?: number;
+    ['Temperature (°C)']?: number;
     hour: number;
   }>;
   yAxisLegend: string;
   unit: string;
+  colors?: Array<string> | null;
 }
 
 export interface compassInterface {

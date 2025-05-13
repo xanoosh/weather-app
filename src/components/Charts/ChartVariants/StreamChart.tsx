@@ -16,6 +16,7 @@ export default function StreamChart({
   chartData,
   yAxisLegend,
   unit,
+  colors,
 }: streamChartInterface) {
   const breakpoint = useBreakpoint();
 
@@ -27,12 +28,16 @@ export default function StreamChart({
     chartCustomTheme.axis.ticks.text.fontSize = 7;
     chartCustomTheme.text.fontSize = 7;
   }
+  const keys = Object.keys(chartData[0]).filter(
+    (key): key is 'Temperature (°C)' | 'Wind speed (m/s)' | 'Wind gust (m/s)' =>
+      key !== 'hour'
+  );
   return (
     <div className="rounded">
       <AspectRatio.Root ratio={breakpoint === 'sm' ? 16 / 11 : 16 / 7}>
         <ResponsiveStream
           data={chartData}
-          keys={['Wind speed (m/s)', 'Wind gust (m/s)']}
+          keys={keys}
           enableGridX={breakpoint === 'sm' ? false : true}
           enableGridY={breakpoint === 'sm' ? false : true}
           fillOpacity={0.6}
@@ -65,20 +70,22 @@ export default function StreamChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          // stackTooltip={(el) => {
-          //   console.log(el);
-          //   // const val = `${String(point.data.y)}${unit}`;
-          //   // const hour = `${String(point.data.x)}:00`;
+          // stackTooltip={(el:{stack}) => {
+          //   // console.log('stack', stack);
+          //   // const val = `${String(el.data.y)}${unit}`;
+          //   // const hour = `${String(el.data.x)}:00`;
           //   return (
-          //     <div className="px-3 py-2 rounded-sm bg-blue-950 shadow-md flex flex-col gap-2">
-          //       <p className="text-sm text-white">
-          //         {/* {val} at {hour} */}
-          //         bububu
-          //       </p>
+          //     <div className="px-3 py-2 rounded-sm bg-blue-900 shadow-md flex flex-col gap-2">
+          //       {el.layer.map(({ id: layerLabel, value }, i) => (
+          //         <p
+          //           key={i}
+          //           className="text-xs text-slate-200"
+          //         >{`${layerLabel}: ${value}${unit}`}</p>
+          //       ))}
           //     </div>
           //   );
           // }}
-          colors={['#8C9FE0', '#3758C7']}
+          colors={colors ? colors : ['#8C9FE0', '#3758C7']}
         />
       </AspectRatio.Root>
     </div>

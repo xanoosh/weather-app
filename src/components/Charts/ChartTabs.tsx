@@ -11,21 +11,27 @@ import { motion } from 'framer-motion';
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   const context = useContext(AppContext);
 
-  const temperaturesArray = dayForecast.values.map(
-    ({ temperature }) => temperature
-  );
+  // const temperaturesArray = dayForecast.values.map(
+  //   ({ temperature }) => temperature
+  // );
   const pressureArray = dayForecast.values.map(
     ({ pressureSurfaceLevel }) => pressureSurfaceLevel || 0
   );
-  const temperaturesChartData = [
-    {
-      id: 'temperature',
-      data: dayForecast.values.map(({ hour, temperature }) => ({
-        x: `${hour}`,
-        y: `${temperature}`,
-      })),
-    },
-  ];
+  // const temperaturesChartData = [
+  //   {
+  //     id: 'temperature',
+  //     data: dayForecast.values.map(({ hour, temperature }) => ({
+  //       x: `${hour}`,
+  //       y: `${temperature}`,
+  //     })),
+  //   },
+  // ];
+  const temperaturesChartData = dayForecast.values.map(
+    ({ hour, temperature }) => ({
+      hour: hour || 0,
+      ['Temperature (°C)']: temperature || 0,
+    })
+  );
 
   const windChartData = dayForecast.values.map(
     ({ hour, windGust, windSpeed }) => ({
@@ -48,6 +54,7 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
       })),
     },
   ];
+
   return (
     <div className="w-full">
       <TabGroup
@@ -97,12 +104,18 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
               }}
               exit={{ opacity: 0 }}
             >
-              <LineChart
+              {/* <LineChart
                 chartData={temperaturesChartData}
                 min={getMinMaxValue(temperaturesArray, 'min')}
                 max={getMinMaxValue(temperaturesArray, 'max')}
                 yAxisLegend="temperature"
                 unit="°C"
+              /> */}
+              <StreamChart
+                chartData={temperaturesChartData}
+                yAxisLegend="Temperature"
+                unit="°C"
+                colors={['#3758C7']}
               />
             </motion.div>
           </TabPanel>
