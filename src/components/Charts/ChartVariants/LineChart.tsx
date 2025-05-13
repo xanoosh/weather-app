@@ -46,7 +46,7 @@ export default function LineChart({
           }}
           // onClick={(point) => console.log('clicked point:', point.data)}
           margin={{
-            left: 45,
+            left: breakpoint === 'sm' ? 5 : 45,
             right: 10,
             bottom: 40,
             top: 20,
@@ -72,15 +72,19 @@ export default function LineChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: `${yAxisLegend} (${unit})`,
-            legendOffset: -40,
-            legendPosition: 'middle',
-            truncateTickAt: 0,
-          }}
+          axisLeft={
+            breakpoint === 'sm'
+              ? {}
+              : {
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: `${yAxisLegend} (${unit})`,
+                  legendOffset: -40,
+                  legendPosition: 'middle',
+                  truncateTickAt: 0,
+                }
+          }
           animate={true}
           motionConfig="stiff"
           pointSize={4}
@@ -91,6 +95,7 @@ export default function LineChart({
           enableTouchCrosshair={true}
           useMesh={true}
           enableGridX={breakpoint === 'sm' ? false : true}
+          enableGridY={breakpoint === 'sm' ? false : true}
         />
       </AspectRatio.Root>
     </div>

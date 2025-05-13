@@ -45,8 +45,8 @@ export default function StreamChart({
           motionConfig="stiff"
           theme={chartCustomTheme}
           margin={{
-            left: 45,
-            right: 10,
+            left: breakpoint === 'sm' ? 5 : 45,
+            right: breakpoint === 'sm' ? 5 : 10,
             bottom: 40,
             top: 20,
           }}
@@ -63,13 +63,17 @@ export default function StreamChart({
             format: (index) => chartData[index].hour,
           }}
           offsetType="diverging"
-          axisLeft={{
-            renderTick: () => <></>,
-            legend: `${yAxisLegend} (${unit})`,
-            legendOffset: -40,
-            legendPosition: 'middle',
-            truncateTickAt: 0,
-          }}
+          axisLeft={
+            breakpoint === 'sm'
+              ? {}
+              : {
+                  renderTick: () => <></>,
+                  legend: `${yAxisLegend} (${unit})`,
+                  legendOffset: -40,
+                  legendPosition: 'middle',
+                  truncateTickAt: 0,
+                }
+          }
           // stackTooltip={(el:{stack}) => {
           //   // console.log('stack', stack);
           //   // const val = `${String(el.data.y)}${unit}`;

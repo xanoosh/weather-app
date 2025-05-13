@@ -54,7 +54,7 @@ export default function BarChart({
             );
           }}
           margin={{
-            left: 45,
+            left: breakpoint === 'sm' ? 5 : 45,
             right: 10,
             bottom: 40,
             top: 20,
@@ -70,15 +70,19 @@ export default function BarChart({
             legendPosition: 'middle',
             truncateTickAt: 0,
           }}
-          axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: `${yAxisLegend} (${unit})`,
-            legendOffset: -40,
-            legendPosition: 'middle',
-            truncateTickAt: 0,
-          }}
+          axisLeft={
+            breakpoint === 'sm'
+              ? {}
+              : {
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: `${yAxisLegend} (${unit})`,
+                  legendOffset: -40,
+                  legendPosition: 'middle',
+                  truncateTickAt: 0,
+                }
+          }
           colors={['#3758C777']}
           enableGridY={breakpoint === 'sm' ? false : true}
         />
