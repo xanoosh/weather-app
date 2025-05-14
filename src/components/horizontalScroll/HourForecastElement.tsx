@@ -3,7 +3,7 @@ import { getWeatherNameFromCode } from '../../utils/getWeatherNameFromCode';
 import HourForecastIcon from './HourForecastIcon';
 import HourForecastDialog from '../Dialogs/HourForecastDialog/HourForecastDialog';
 import Badge from '../Badge';
-import { LightningBoltIcon, SunIcon, MoonIcon } from '@radix-ui/react-icons';
+import { BlendingModeIcon, SunIcon, MoonIcon } from '@radix-ui/react-icons';
 
 export default function HourForecastElement({
   hourForecast,
@@ -33,13 +33,13 @@ export default function HourForecastElement({
             <div className="absolute -top-0.5 left-0">
               {hourForecast.hour === sunrise ? (
                 <Badge
-                  icon={<SunIcon width={12} />}
+                  icon={<SunIcon color="#DCBF37" />}
                   tooltip={`sunrise at ${sunriseString}`}
                 />
               ) : null}
               {hourForecast.hour === sunset ? (
                 <Badge
-                  icon={<MoonIcon width={12} />}
+                  icon={<MoonIcon color="#BD86BF" />}
                   tooltip={`sunset at ${sunsetString}`}
                 />
               ) : null}
@@ -48,9 +48,8 @@ export default function HourForecastElement({
               {hourForecast.precipitationProbability &&
               hourForecast.precipitationProbability > 0 ? (
                 <Badge
-                  icon={<LightningBoltIcon width={10} />}
+                  icon={<BlendingModeIcon color="#187bd0" />}
                   tooltip={`Precipitation probability ~${hourForecast.precipitationProbability}%`}
-                  text={`${hourForecast.precipitationProbability}%`}
                 />
               ) : null}
             </div>
