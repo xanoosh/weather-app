@@ -61,9 +61,9 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
         selectedIndex={context?.chartTabIndex}
         onChange={(e) => context?.setChartTabIndex(e)}
       >
-        <TabList className="flex border-b-[.15rem] border-transparent md:justify-center justify-between relative">
+        <TabList className="flex border-b-[.1rem] border-transparent md:justify-center justify-between relative">
           <motion.div
-            className="bg-white w-1/4 h-[.15rem] absolute -bottom-[.15rem] rounded-xl"
+            className="bg-white w-1/4 h-[.1rem] absolute -bottom-[.5rem] rounded-xl"
             initial={{ left: `${(context?.chartTabIndex || 0) * 25}%` }}
             animate={{ left: `${(context?.chartTabIndex || 0) * 25}%` }}
           ></motion.div>

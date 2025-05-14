@@ -18,7 +18,7 @@ export default function ForecastTabs({
       onChange={(e) => setForecastTabPosition(e)}
       className="lg:w-3/5 md:w-3/4 w-full"
     >
-      <TabList className="flex border-b-[0.2rem] border-transparent md:justify-center justify-between relative">
+      <TabList className="flex md:justify-center justify-between relative">
         <motion.div
           layoutId="bubble-days"
           className="bg-gradient-to-r from-[#576eb9] to-blue-800  w-1/5  absolute top-0.5 bottom-0.5 rounded-[3rem] z-10"
@@ -41,7 +41,7 @@ export default function ForecastTabs({
           </Tab>
         ))}
       </TabList>
-      <TabPanels className="mt-3">
+      <TabPanels className="mt-8">
         {dailyForecastArray.map((dayForecast, i) => (
           <TabPanel key={i} className="rounded focus:outline-none">
             <HorizontalScroll dayForecast={dayForecast} />
