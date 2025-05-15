@@ -7,6 +7,9 @@ export const getDailyForecastArray = (
 
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
+  //display data for at least 8 forecastelements (16-23) if hour is later than 16 to prevent UI issues
+  //(1-3 datapoints in streamchart/barchart look weird)
+  const hourToDisplay = currentHour >= 16 ? 16 : currentHour;
 
   timelinesArray.forEach((el) => {
     if (dailyForcastArray?.[4]?.values.length === 24) return;
@@ -29,7 +32,7 @@ export const getDailyForecastArray = (
         });
       }
     } else {
-      if (Number(hour) >= currentHour) {
+      if (Number(hour) >= hourToDisplay) {
         dailyForcastArray.push({
           date: el.time,
           index,
