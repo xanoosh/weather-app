@@ -21,7 +21,7 @@ export default function ForecastTabs({
       <TabList className="flex md:justify-center justify-between relative">
         <motion.div
           layoutId="bubble-days"
-          className="bg-gradient-to-r from-[#576eb9] to-blue-800  w-1/5  absolute top-0.5 bottom-0.5 rounded-[3rem] z-10"
+          className="bg-blue-900  w-1/5  absolute top-0.5 bottom-0.5 rounded-[3rem] z-10"
           animate={{ left: `${forecastTabPosition * 20}%` }}
           transition={{
             type: 'spring',

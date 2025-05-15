@@ -39,7 +39,7 @@ export default function HourForecastElement({
               ) : null}
               {hourForecast.hour === sunset ? (
                 <Badge
-                  icon={<MoonIcon color="#BD86BF" />}
+                  icon={<MoonIcon color="#8C9FE0" />}
                   tooltip={`sunset at ${sunsetString}`}
                 />
               ) : null}

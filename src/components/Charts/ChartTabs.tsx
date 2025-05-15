@@ -11,21 +11,9 @@ import { motion } from 'framer-motion';
 export default function ChartTabs({ dayForecast }: chartTabsInterface) {
   const context = useContext(AppContext);
 
-  // const temperaturesArray = dayForecast.values.map(
-  //   ({ temperature }) => temperature
-  // );
   const pressureArray = dayForecast.values.map(
     ({ pressureSurfaceLevel }) => pressureSurfaceLevel || 0
   );
-  // const temperaturesChartData = [
-  //   {
-  //     id: 'temperature',
-  //     data: dayForecast.values.map(({ hour, temperature }) => ({
-  //       x: `${hour}`,
-  //       y: `${temperature}`,
-  //     })),
-  //   },
-  // ];
   const temperaturesChartData = dayForecast.values.map(
     ({ hour, temperature }) => ({
       hour: hour || 0,
@@ -104,13 +92,6 @@ export default function ChartTabs({ dayForecast }: chartTabsInterface) {
               }}
               exit={{ opacity: 0 }}
             >
-              {/* <LineChart
-                chartData={temperaturesChartData}
-                min={getMinMaxValue(temperaturesArray, 'min')}
-                max={getMinMaxValue(temperaturesArray, 'max')}
-                yAxisLegend="temperature"
-                unit="°C"
-              /> */}
               <StreamChart
                 chartData={temperaturesChartData}
                 yAxisLegend="Temperature"
