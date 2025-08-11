@@ -1,5 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
-import { Cross2Icon } from '@radix-ui/react-icons';
+import { Cross2Icon, DrawingPinFilledIcon } from '@radix-ui/react-icons';
 import { motion } from 'framer-motion';
 import Autocomplete from './Autocomplete';
 import { useState } from 'react';
@@ -11,11 +11,17 @@ export default function AutocompleteDialog() {
   const closeDialog = () => setIsOpen(false);
   return (
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
-      <Dialog.Trigger asChild>
-        <button className="text-white px-4 p-1 inline-flex items-center justify-center rounded-xl bg-white/20 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
-          Change location
-        </button>
-      </Dialog.Trigger>
+      <div className="flex flex-col items-center text-center gap-3">
+        <p className="text-xs text-white">
+          Forecact location: <b>{location}</b>
+        </p>
+        <Dialog.Trigger asChild>
+          <button className="text-white px-4 p-1 inline-flex gap-1 items-center justify-center rounded-xl bg-white/20 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
+            <DrawingPinFilledIcon width={13} height={13} />
+            Change forecact location
+          </button>
+        </Dialog.Trigger>
+      </div>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0" />
         <Dialog.Content
