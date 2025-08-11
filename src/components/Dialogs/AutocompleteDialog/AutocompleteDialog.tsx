@@ -13,12 +13,12 @@ export default function AutocompleteDialog() {
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <div className="flex flex-col items-center text-center gap-3">
         <p className="text-xs text-white">
-          Forecact location: <b>{location}</b>
+          Forecast location: <b>{location}</b>
         </p>
         <Dialog.Trigger asChild>
           <button className="text-white px-4 p-1 inline-flex gap-1 items-center justify-center rounded-xl bg-white/20 focus:outline-none text-xs font-semibold focus:ring-2 focus:ring-white">
             <DrawingPinFilledIcon width={13} height={13} />
-            Change forecact location
+            Change forecast location
           </button>
         </Dialog.Trigger>
       </div>
