@@ -23,7 +23,7 @@ export default function AutocompleteDialog() {
         </Dialog.Trigger>
       </div>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0" />
+        <Dialog.Overlay className="fixed inset-0 bg-black/10" />
         <Dialog.Content
           className="fixed top-36 left-[50%] w-[90vw] max-w-[450px] translate-x-[-50%] rounded"
           asChild
@@ -31,15 +31,15 @@ export default function AutocompleteDialog() {
           <motion.div
             animate={{ opacity: [0, 1] }}
             exit={{ opacity: 0 }}
-            className="bg-white shadow-lg focus:outline-none px-2 py-3 flex flex-col gap-3 text-slate-500"
+            className="bg-blue-950 shadow-lg focus:outline-none px-2 py-3 flex flex-col gap-3 text-white"
           >
             <Dialog.Title className="flex justify-between pl-2">
-              <h2 className="text-md font-semibold text-slate-600">
+              <h2 className="text-md font-semibold text-white">
                 Change forecast location
               </h2>
               <Dialog.Close asChild>
                 <button
-                  className="text-slate-500 hover:text-slate-600  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-blue-950 focus:outline-none"
+                  className="text-white hover:text-white  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-white focus:outline-none"
                   aria-label="Close"
                   onClick={() => setIsOpen(false)}
                 >
@@ -49,8 +49,8 @@ export default function AutocompleteDialog() {
             </Dialog.Title>
             <Dialog.Description className="px-3 flex flex-col gap-4 text-sm py-2">
               <div className="flex flex-col gap-1">
-                <p className="text-xs text-slate-500">Current location</p>
-                <p className="text-slate-600">{location}</p>
+                <p className="text-xs text-white">Current location</p>
+                <p className="text-white">{location}</p>
               </div>
               <Autocomplete
                 closeDialog={closeDialog}

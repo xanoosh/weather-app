@@ -39,7 +39,7 @@ export default function Autocomplete({
 
   return (
     <Field className="relative w-full flex flex-col gap-1">
-      <Label className="text-slate-500 text-xs">{label}</Label>
+      <Label className="text-white/60 text-xs">{label}</Label>
       <Combobox
         value={selectedLocationText}
         onChange={(e) => {
@@ -54,7 +54,7 @@ export default function Autocomplete({
         }}
       >
         <ComboboxInput
-          className="bg-white border border-slate-400 rounded py-2 px-4 w-full text-slate-700 focus:ring-1 focus:ring-blue-950 focus:border-blue-950 focus:outline-none"
+          className="bg-white border border-slate-400 rounded py-2 px-4 w-full text-slate-700 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-950 focus:outline-none"
           onChange={(e) => {
             setSelectedLocationText(e.target.value);
           }}
