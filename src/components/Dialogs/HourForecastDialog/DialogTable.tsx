@@ -32,39 +32,51 @@ export default function DialogTable({
 
   const uvObject = uvIndex ? getUvIndexHealthConcern(uvIndex) : null;
   return (
-    <div className="flex flex-col gap-2 text-slate-600 text-sm [&>div]:border-b [&>div]:border-slate-300 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0 mt-6 mb-2">
+    <div className="flex flex-col gap-2 text-sm [&>div]:border-b [&>div]:border-white/70 [&>div]:pb-3 [&>div:last-of-type]:border-none [&>div:last-of-type]:pb-0 mt-6 mb-2">
       {variant === 'General' ? (
         <>
           {temperature ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Temperature:</div>
-              <div className="col-span-2">{temperature} °C</div>
+              <div className="col-span-2 text-white/70 font-semibold">
+                Temperature:
+              </div>
+              <div className="col-span-2 text-white">{temperature} °C</div>
             </div>
           ) : null}
           {humidity ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Humidity:</div>
-              <div className="col-span-2">
+              <div className="col-span-2 text-white/70 font-semibold">
+                Humidity:
+              </div>
+              <div className="col-span-2 text-white">
                 <HumidityPill percentage={humidity} />
               </div>
             </div>
           ) : null}
           {visibility ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Visibility:</div>
-              <div className="col-span-2">{visibility} km</div>
+              <div className="col-span-2 text-white/70 font-semibold">
+                Visibility:
+              </div>
+              <div className="col-span-2 text-white">{visibility} km</div>
             </div>
           ) : null}
           {pressureSurfaceLevel ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Pressure level:</div>
-              <div className="col-span-2">{pressureSurfaceLevel} hPa</div>
+              <div className="col-span-2 text-white/70 font-semibold">
+                Pressure level:
+              </div>
+              <div className="col-span-2 text-white">
+                {pressureSurfaceLevel} hPa
+              </div>
             </div>
           ) : null}
           {uvObject ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">UV index:</div>
-              <div className="col-span-2">
+              <div className="col-span-2 text-white/70 font-semibold">
+                UV index:
+              </div>
+              <div className="col-span-2 text-white">
                 <AnimatedLevel name={uvObject?.name} level={uvObject?.level} />
               </div>
             </div>
@@ -75,24 +87,28 @@ export default function DialogTable({
         <>
           {windSpeed ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Wind speed:</div>
-              <div className="col-span-2">{windSpeed} m/s</div>
+              <div className="col-span-2 text-white/70 font-semibold">
+                Wind speed:
+              </div>
+              <div className="col-span-2 text-white">{windSpeed} m/s</div>
             </div>
           ) : null}
           {windGust ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Wind gust:</div>
-              <div className="col-span-2">{windGust} m/s</div>
+              <div className="col-span-2 text-white/70 font-semibold">
+                Wind gust:
+              </div>
+              <div className="col-span-2 text-white">{windGust} m/s</div>
             </div>
           ) : null}
           {windDirection ? (
             <div className="flex justify-start gap-4 text-sm mt-4 mb-2">
               <Compass windDirection={windDirection} />
               <div>
-                <p className="font-semibold">Wind direction</p>
-                <p>{getWindDirection(windDirection)}</p>
-                <p className="font-semibold">Azimuth</p>
-                <p>{windDirection} deg</p>
+                <p className="font-semibold text-white/70">Wind direction</p>
+                <p className="text-white">{getWindDirection(windDirection)}</p>
+                <p className="font-semibold text-white/70">Azimuth</p>
+                <p className="text-white">{windDirection} deg</p>
               </div>
             </div>
           ) : null}

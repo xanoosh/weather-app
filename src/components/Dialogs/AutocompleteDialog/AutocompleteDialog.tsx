@@ -23,7 +23,7 @@ export default function AutocompleteDialog() {
         </Dialog.Trigger>
       </div>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/10" />
+        <Dialog.Overlay className="fixed inset-0 bg-black/15" />
         <Dialog.Content
           className="fixed top-36 left-[50%] w-[90vw] max-w-[450px] translate-x-[-50%] rounded"
           asChild
@@ -39,7 +39,7 @@ export default function AutocompleteDialog() {
               </h2>
               <Dialog.Close asChild>
                 <button
-                  className="text-white hover:text-white  inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-white focus:outline-none"
+                  className="text-white inline-flex h-6 w-6 appearance-none items-center justify-center rounded-full focus:ring-1 focus:ring-white focus:outline-none"
                   aria-label="Close"
                   onClick={() => setIsOpen(false)}
                 >
