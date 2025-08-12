@@ -6,9 +6,9 @@ export default function HumidityPill({ percentage }: humidityPillInterface) {
   return (
     <div className="flex gap-2 items-center">
       <p>{percentage} %</p>
-      <div className="w-[50px] h-2 bg-sky-200 relative rounded overflow-hidden">
+      <div className="w-[50px] h-2 bg-white/20 relative rounded overflow-hidden">
         <motion.div
-          className={` h-2 bg-sky-500`}
+          className={` h-2 bg-sky-600`}
           animate={{
             width: ['0px', contentWidth],
             transition: {

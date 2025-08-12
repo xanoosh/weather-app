@@ -10,7 +10,7 @@ export default function AnimatedLevel({ name, level }: animatedLevelInterface) {
           animate={
             level >= 1
               ? {
-                  backgroundColor: ['#fff', '#4ade80'],
+                  backgroundColor: ['#ffffff44', '#4ade80'],
                   transition: {
                     duration: 0.2,
                     easing: 'easeOut',
@@ -18,13 +18,13 @@ export default function AnimatedLevel({ name, level }: animatedLevelInterface) {
                 }
               : undefined
           }
-          className="h-[0.4rem] w-[.3rem] border border-slate-400"
+          className="h-[0.4rem] w-[.3rem] "
         ></motion.div>
         <motion.div
           animate={
             level >= 2
               ? {
-                  backgroundColor: ['#fff', '#facc15'],
+                  backgroundColor: ['#ffffff44', '#facc15'],
                   transition: {
                     delay: 0.1,
                     duration: 0.2,
@@ -33,13 +33,13 @@ export default function AnimatedLevel({ name, level }: animatedLevelInterface) {
                 }
               : undefined
           }
-          className="h-[0.55rem] w-[.3rem] border border-slate-400"
+          className="h-[0.55rem] w-[.3rem] "
         ></motion.div>
         <motion.div
           animate={
             level >= 3
               ? {
-                  backgroundColor: ['#fff', '#fb923c'],
+                  backgroundColor: ['#ffffff44', '#fb923c'],
                   transition: {
                     delay: 0.2,
                     duration: 0.2,
@@ -48,13 +48,13 @@ export default function AnimatedLevel({ name, level }: animatedLevelInterface) {
                 }
               : undefined
           }
-          className="h-[0.7rem] w-[.3rem] border border-slate-400"
+          className="h-[0.7rem] w-[.3rem] "
         ></motion.div>
         <motion.div
           animate={
             level >= 4
               ? {
-                  backgroundColor: ['#fff', '#f43f5e'],
+                  backgroundColor: ['#ffffff44', '#f43f5e'],
                   transition: {
                     delay: 0.3,
                     duration: 0.2,
@@ -63,13 +63,13 @@ export default function AnimatedLevel({ name, level }: animatedLevelInterface) {
                 }
               : undefined
           }
-          className="h-[0.85rem] w-[.3rem] border border-slate-400"
+          className="h-[0.85rem] w-[.3rem] "
         ></motion.div>
         <motion.div
           animate={
             level >= 5
               ? {
-                  backgroundColor: ['#fff', '#e11d48'],
+                  backgroundColor: ['#ffffff44', '#e11d48'],
                   transition: {
                     delay: 0.4,
                     duration: 0.2,
@@ -78,7 +78,7 @@ export default function AnimatedLevel({ name, level }: animatedLevelInterface) {
                 }
               : undefined
           }
-          className="h-4 w-[.3rem] border border-slate-400"
+          className="h-4 w-[.3rem] "
         ></motion.div>
       </div>
     </div>
