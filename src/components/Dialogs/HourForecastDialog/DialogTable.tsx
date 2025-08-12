@@ -118,64 +118,82 @@ export default function DialogTable({
         <>
           {precipitationProbability ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">
+              <div className="col-span-2 text-white/70 font-semibold">
                 Precipitation probability:
               </div>
-              <div className="col-span-2">{precipitationProbability} %</div>
+              <div className="col-span-2 text-white">
+                {precipitationProbability} %
+              </div>
             </div>
           ) : null}
           {precipitationType ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">
+              <div className="col-span-2 text-white/70 font-semibold">
                 Precipitation type:
               </div>
-              <div className="col-span-2">
+              <div className="col-span-2 text-white">
                 {getPrecipitationType(precipitationType)}
               </div>
             </div>
           ) : null}
           {rainIntensity ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Rain intensity:</div>
-              <div className="col-span-2">{rainIntensity} mm/hr</div>
+              <div className="col-span-2 font-semibold text-white/70">
+                Rain intensity:
+              </div>
+              <div className="col-span-2 text-white">{rainIntensity} mm/hr</div>
             </div>
           ) : null}
           {rainAccumulation ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Rain accumulation:</div>
-              <div className="col-span-2">{rainAccumulation} mm</div>
+              <div className="col-span-2 text-white/70 font-semibold">
+                Rain accumulation:
+              </div>
+              <div className="col-span-2 text-white">{rainAccumulation} mm</div>
             </div>
           ) : null}
           {snowIntensity ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Snow intensity:</div>
-              <div className="col-span-2">{snowIntensity} mm/hr</div>
+              <div className="col-span-2 font-semibold text-white/70">
+                Snow intensity:
+              </div>
+              <div className="col-span-2 text-white">{snowIntensity} mm/hr</div>
             </div>
           ) : null}
           {snowAccumulation ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Snow accumulation:</div>
-              <div className="col-span-2">{snowAccumulation} mm</div>
+              <div className="col-span-2 font-semibold text-white/70">
+                Snow accumulation:
+              </div>
+              <div className="col-span-2 text-white">{snowAccumulation} mm</div>
             </div>
           ) : null}
           {snowDepth ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Snow depth:</div>
-              <div className="col-span-2">{snowDepth} cm</div>
+              <div className="col-span-2 font-semibold text-white/70">
+                Snow depth:
+              </div>
+              <div className="col-span-2 text-white">{snowDepth} cm</div>
             </div>
           ) : null}
           {sleetIntensity ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">Sleet intensity:</div>
-              <div className="col-span-2">{sleetIntensity} mm/hr</div>
+              <div className="col-span-2 font-semibold text-white/70">
+                Sleet intensity:
+              </div>
+              <div className="col-span-2 text-white">
+                {sleetIntensity} mm/hr
+              </div>
             </div>
           ) : null}
           {sleetAccumulation ? (
             <div className="grid grid-cols-4">
-              <div className="col-span-2 font-semibold">
+              <div className="col-span-2 font-semibold text-white/70">
                 Sleet accumulation:
               </div>
-              <div className="col-span-2">{sleetAccumulation} mm</div>
+              <div className="col-span-2 text-white">
+                {sleetAccumulation} mm
+              </div>
             </div>
           ) : null}
         </>
